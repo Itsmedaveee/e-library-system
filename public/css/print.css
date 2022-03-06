@@ -1,0 +1,62 @@
+body {
+
+	font-family: sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+.serif-font {
+	font-family: sans-serif;
+}
+
+.center {
+	text-align: center;
+}
+
+
+.paragraph {
+
+	float: right;
+	margin-top: -10px;
+	font-family: sans-serif;
+}
+
+.paragraph-1 {
+
+	float: right;
+	font-family: sans-serif;
+	margin-top: -19px;
+}
+
+
+ 
+thead th {
+
+	background: #3498DB;
+	color: #fff;
+	font-family: sans-serif;
+	text-align: left;
+	font-size: 10px;
+}
+
+
+tbody {
+	
+	background: #ECF0F1;
+
+} 
+
+tbody td {
+
+	margin-right: -20px;
+}
+
+.text-small {
+
+	font-size: 9px;
+}
+
+td {
+
+	font-size: 9px;
+}
