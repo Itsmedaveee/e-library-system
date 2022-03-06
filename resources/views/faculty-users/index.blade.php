@@ -36,7 +36,6 @@
 								<label>Fullname</label>
 								<input type="text" class="form-control" name="name">
 							</div>	
-
 							<div class="form-group">
 								<label>Department</label>
 								<select class="form-control" name="department">
