@@ -46,6 +46,9 @@
         @endif        
         @if (auth()->user()->isFaculty())
             @include('faculty-dashboard.sidebar.index')
+        @endif        
+        @if (auth()->user()->isStudent())
+            @include('student-dashboard.sidebar.sidebar')
         @endif
         <main class="py">
             @yield('content')
@@ -68,6 +71,31 @@
     <script src="{{ asset('/js/jquery.gritter.js') }}"></script>
     <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script> --}}
     @stack ('scripts')
+
+       <script src="{{ asset('assets/plugins/datatable/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
+
+    <script>
+   
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get('success') }}");
+            {{ session()->forget('success') }}
+        @endif
+
+        @if(Session::has('info'))
+        toastr.info("{{ Session::get('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+        toastr.warning("{{ Session::get('warning') }}");
+        @endif
+
+        @if(Session::has('error'))
+            toastr.error("{{ Session::get('error') }}");
+        @endif
+     
+    </script>
+
 
 
 </body>

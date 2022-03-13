@@ -16,6 +16,15 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'id_number' => 'required',  
+            'name' => 'required',  
+            'gender' => 'required',  
+            'section' => 'required',  
+            'email' => 'required|email|unique:users',
+            'year_level'    => 'required', 
+            'name'  => 'required', 
+        ]);
         $student = Student::create([
             'id_number' => request('id_number'),
             'name' => request('name'),
@@ -41,5 +50,30 @@ class StudentsController extends Controller
     public function edit(Student $student)
     {
         return view('students.edit', compact('student'));
+    }
+
+    public function update(Student $student)
+    {
+         $student->update([
+            'id_number' => request('id_number'),
+            'name' => request('name'),
+            'gender' => request('gender'),
+            'section' => request('section'),
+            'email' => request('email'),
+            'year_level' => request('year_level'),
+        ]);
+
+        $role = Role::where('name', 'Student')->first();
+        $user = User::first();
+        $user->update([
+            'username'  => request('id_number'),
+            'name'  => request('name'),
+            'email'  => $student->email,
+            'password'  => bcrypt(request('email'))
+        ]);
+
+        $student->user()->associate($user)->save();
+        $user->role()->associate($role)->save();
+        return redirect('/students')->with('info', 'Student has been updated!');
     }
 }

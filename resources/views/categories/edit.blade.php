@@ -1,17 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
-<div id="content" class="content">
-				<!-- begin breadcrumb -->
-				<ol class="breadcrumb float-xl-right">
-					<li class="breadcrumb-item"><a href="/home">Home</a></li>
-					<li class="breadcrumb-item"><a href="/categories">Categories</a></li>
-				</ol>
-				<!-- end breadcrumb -->
-				<!-- begin page-header -->
-				<h1 class="page-header">Edit Category</h1>
+ 
 				<!-- end page-header -->
 				<!-- begin panel -->
-				<div class="row">
+			{{-- 	<div class="row">
 				<div class="col-md-12">
 				<div class="panel panel-inverse">
 					<div class="panel-heading">
@@ -23,7 +15,13 @@
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 						</div>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body"> --}}
+	<div class="container">
+			<h2>Edit Category</h2>
+			<div class="col-md-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Edit Category</div>
+				<div class="panel-body">
 						<form method="POST" action="/categories/{{ $category->id }}">
 							@csrf
 							{{ method_field('PATCH') }}

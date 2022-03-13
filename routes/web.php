@@ -31,5 +31,15 @@ Route::resource('/categories', 'CategoriesController');
  Route::resource('/students', 'StudentsController');
 
 
-
+//Faculty Dashboard
  Route::get('/faculty/home', 'FacultyDashboardController@index'); 
+ Route::get('/categories/{category}/show', 'FacultyDashboardController@show'); 
+
+ //Student Dashboard
+
+ Route::get('/student/home', 'StudentsDashboardController@index');
+
+ //Collections
+ Route::get('/collections', 'CollectionsController@index');
+ //PDF
+ Route::get('/pdf-collections', 'PDFCollectionsController@index');

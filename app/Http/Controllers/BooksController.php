@@ -16,7 +16,14 @@ class BooksController extends Controller
 
     public function store(Request $request)
     {
-
+       $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required',
+            'author' => 'required',
+            'category' => 'required',
+            'upload_photo' => 'required',
+            'upload_file' => 'required',
+       ]);  
        $image = $request->upload_photo;
         if (request()->hasFile('upload_photo')) {
             $file      = $request->file('upload_photo');

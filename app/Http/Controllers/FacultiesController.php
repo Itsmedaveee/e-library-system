@@ -18,6 +18,15 @@ class FacultiesController extends Controller
 
     public function store(Request $request)
     {
+       $this->validate(request(), [
+            'id_number' => 'required',
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email|unique:users',
+            'password'  => 'required',
+            'gender'    => 'required',
+            'department'    => 'required'
+       ]);
        $department = Department::find(request('department'));
        $facultyName = $request->name;
        $faculty =  Faculty::create([

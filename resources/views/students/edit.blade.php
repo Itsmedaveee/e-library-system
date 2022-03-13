@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
 
-<div id="content" class="content">
+{{-- <div id="content" class="content">
 				<!-- begin breadcrumb -->
 				<ol class="breadcrumb float-xl-right">
 					<li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -24,9 +24,16 @@
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 						</div>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body"> --}}
+			<div class="container">
+			<h2>Edit Student</h2>
+			<div class="col-md-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Edit Student</div>
+				<div class="panel-body"> 
 						<form method="POST" action="/students/{{ $student->id }}">
 							@csrf
+							{{ method_field('PATCH') }}
 						<div class="form-group">
 								<label>ID No.</label>
 								<input type="text" class="form-control" name="id_number" value="{{ $student->id_number }}">

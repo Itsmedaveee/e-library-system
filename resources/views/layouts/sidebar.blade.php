@@ -102,6 +102,20 @@
                <li class="{{ Request::is('books') ? 'active' : '' }}"><a href="/books">Books</a></li>
             </ul>
          </li>
+          <li class="has-sub {{ Request::is('collections') ? 'active' : '' }} 
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+               {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
+               <i class="fa fa-list"></i>
+               </div>
+               <span>Collections</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="{{ Request::is('collections') ? 'active' : '' }}"><a href="/collections">Collections</a></li>
+            </ul>
+         </li>
         
          <!-- begin sidebar minify button -->
          <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-back"></i> <span>Collapse</span></a></li>

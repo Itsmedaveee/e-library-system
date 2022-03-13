@@ -40,6 +40,7 @@ class CategoriesController extends Controller
 
     public function show(Category $category)
     {
+        $category->load('books');
         return view('categories.show', compact('category'));
     }
 

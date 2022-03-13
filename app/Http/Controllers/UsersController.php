@@ -18,7 +18,8 @@ class UsersController extends Controller
         $this->validate(request(), [
             'username'  => 'required',
             'name'      => 'required',
-            'email'     => 'required',
+            'email' => 'required|email|unique:users',
+            'password'  => 'required'
         ]);
        $role = Role::where('name', 'Administrator')->first();
        $user =  User::create([
@@ -59,7 +60,7 @@ class UsersController extends Controller
         ]);
 
         $user->role()->associate($role)->save();
-        return back()->with('info', 'Administrator has been updated!');
+        return redirect('/users')->with('info', 'Administrator has been updated!');
     }
 
     public function destroy(User $user) 

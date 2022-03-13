@@ -1,80 +1,147 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+  <meta charset="utf-8">
+   <title>SRC</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+   <link href="{{ asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+   
+   <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-paper.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/papers.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/wow.js') }}" media="screen">
+   <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
+   <link rel="stylesheet" href="{{ asset('frontend/css/headers.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/mains.css') }}" media="screen">
+   <link rel="stylesheet" href="{{ asset('frontend/css/link.css') }}" media="screen"> 
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
+       <link href="{{ asset('assets/plugins/datatable/DataTables-1.10.18/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" >
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ 
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+ @if (optional(auth()->user())->isAdmin())
+         @include('layouts._nav')
+   @elseif (optional(auth()->user())->isFaculty())
+            @include('faculty-dashboard.sidebar.index')   
+  @elseif (optional(auth()->user())->isStudent())
+            @include('student-dashboard.sidebar.sidebar')
+  @endif      
+  
+    @yield ('content')
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+  </div>
+  </div>
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+   <div id="more-links" style="margin-top: 25%;">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <!--CONTACT-->
+                <div class="page-header text-red">
+                    <h3><i class="fa fa-envelope fa-fw"></i> CONTACT US</h3>
+                    
                 </div>
+                <address class="text-muted">
+                    <span class="fa-stack fa-lg text-primary">
+                        <i class="fa fa-square fa-stack-2x text-red"></i>
+                        <i class="fa fa-map-marker fa-stack-1x" style="color:#333333;"></i>
+                    </span> &nbsp; Santa Rita Pampanga
+                    <span class="clearfix"></span>
+                    <span class="fa-stack fa-lg text-primary">
+                        <i class="fa fa-square fa-stack-2x text-red"></i>
+                        <i class="fa fa-phone fa-stack-1x" style="color:#333333;"></i>
+                    </span> &nbsp;  (045) 900-5007
+                    <span class="clearfix"></span>
+                    <span class="fa-stack fa-lg text-primary">
+                        <i class="fa fa-square fa-stack-2x text-red"></i>
+                        <i class="fa fa-at fa-stack-1x" style="color:#333333;"></i>
+                    </span> &nbsp; <a href="mailto:officeofthepresident@bulsu.edu.ph" class="footer-links">src.edu.ph</a>
+                </address>
             </div>
-        </nav>
+                <!--QUICK LINKS-->
+            <div class="col-md-4 col-xs-12">
+                <div class="page-header text-red">
+                    <h3><i class="fa fa-external-link fa-fw"></i> QUICK LINKS</h3>
+                </div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+                <ul class="list-unstyled quick-links col-xs-6">
+                    <li><a class="footer-links" href="/home">HOME</a></li>
+                    <li><a class="footer-links" href="/users">USERS</a></li>
+                    <li><a class="footer-links" href="/faculty-users">FACULTIES</a></li>
+                    <li><a class="footer-links" href="/students">STUDENTS</a></li>
+                    
+                </ul>
+                <ul class="list-unstyled quick-links col-xs-6">
+                   
+                    <li><a class="footer-links" href="/departments">DEPARTMENTS</a></li>
+                    <li><a class="footer-links" href="/categories">CATEGORIES</a></li>
+                    <li><a class="footer-links" href="/books">BOOK</a></li>
+                    <li><a class="footer-links" href="/collections">COLLECTIONS</a></li>
+                   
+                </ul>
+            </div>
+{{-- 
+            <div class="col-md-4 col-xs-12">
+                <!--ACADEMICS-->
+                <div class="page-header text-red">
+                    <h3><i class="fa fa-graduation-cap fa-fw"></i> FACULTIES</h3>
+                </div>
+
+                <ul class="list-unstyled quick-links col-xs-6">
+                   <li><a class="footer-links" href="/administration">STUDENTS</a></li>
+                
+                    
+                </ul>
+                <ul class="list-unstyled quick-links col-xs-6">
+                 <li><a class="footer-links" href="/academics">CATEGORIES</a></li>             
+                </ul>
+            </div> --}}
+        </div>
+      </div>
+   </div>
+ {{--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
+   <script src="{{ asset('/js/app.min.js') }}"></script>
+    <script src="{{ asset('/js/apple.min.js') }}"></script>
+    <script src="{{ asset('/js/theme/default.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('/js/toastr.min.js') }}"></script>
+{{--     <script src="{{ asset('/js/select2.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('/js/switchery.min.js') }}"></script>
+    <script src="{{ asset('/js/particles.js') }}"></script>
+    <script src="{{ asset('/js/stats.js') }}"></script>
+    <script src="{{ asset('/js/app-js.js') }}"></script>
+    <script src="{{ asset('/js/moment.js') }}"></script>
+    <script src="{{ asset('/js/jquery.gritter.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script> --}}
+    @stack ('scripts')
+
+       <script src="{{ asset('assets/plugins/datatable/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
+
+    <script>
+   
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get('success') }}");
+            {{ session()->forget('success') }}
+        @endif
+
+        @if(Session::has('info'))
+        toastr.info("{{ Session::get('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+        toastr.warning("{{ Session::get('warning') }}");
+        @endif
+
+        @if(Session::has('error'))
+            toastr.error("{{ Session::get('error') }}");
+        @endif
+     
+    </script>
+ 
 </body>
 </html>

@@ -1,0 +1,463 @@
+body {
+
+}
+
+
+.start-div{
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #631B1E;
+    color: #F3EAC9;
+}
+
+.start-div div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+
+
+#index-contents{
+    padding-top: 20px;
+    padding-bottom:0;
+}
+
+.home-content{
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+#socials{
+    background-color: #f0f0f0
+}
+
+.news-image{
+    margin-bottom: 20px;
+}
+
+.more-news-image {
+    min-width: 300px;
+    width: 100%;
+}
+
+.more-news-title{
+    font-size: 20px;
+}
+
+#events-calendar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.event-date{
+    vertical-align: top;
+    width: 60px;
+    height: 60px;
+    background-color: #A94442;
+    color:white;
+    text-align: center;
+    padding: 3px;
+}
+
+.event-month{
+    padding-left: 3px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    line-height: 23px;
+    width: 100%;
+    font-weight: lighter;
+}
+
+.event-day{
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.event-title{
+    font-weight: bold;
+}
+
+.heading{
+    font-weight: normal;
+}
+
+.seal-img{
+    margin-right: 15px;
+    width: 150px;
+}
+
+body {
+    background-color: #F5F5F5;
+
+}
+
+
+a{
+    color:  #A94442;
+}
+
+a.dropdown-toggle, ul.nav.navbar-nav > li > a{
+
+}
+
+a:hover, a:focus{
+    color:  #008cba;
+    text-decoration: none;
+}
+
+
+.text-red{
+    color: #337ab7;
+}
+
+}
+
+.btn-red{
+    background-color: #671D1E;
+    color: white;
+}
+
+.btn-red:focus,
+.btn-red.focus {
+  color: #ffffff;
+  background-color:#337ab7;
+  border-color: #441314;
+
+}
+.btn-red:hover {
+  color: #ffffff;
+  background-color: #441314;
+  border-color: #441314;
+
+}
+.btn-red:active,
+.btn-red.active{
+  color: #ffffff;
+  background-color: #441314;
+  border-color: #441314;
+}
+
+
+.maccim-logo a{
+    text-decoration: none;
+    color:black;
+}
+
+.active-red {
+    background-color: #671E1E;
+    color: white;
+}
+
+.fixed-bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.fixed-bottom > button{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0.7;
+}
+
+.fixed-bottom > button:hover{
+    opacity: 1;
+}
+
+#share-bar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #DDDDDD;
+}
+
+.panel-red {
+    border-color: #671E1E;
+}
+
+    .panel-red > .panel-heading {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: white;
+co        background-color: #671E1E;
+        border-color: #671E1E;
+    }
+
+        .panel-red > .panel-heading + .panel-collapse > .panel-body {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-top-color: #671E1E;
+        }
+
+.panel-red > .panel-heading > .panel-title > a {
+    color: white;
+}
+.sidebar-header {
+  padding-bottom: 9.5px;
+  margin: 42px 0 21px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.group{
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+
+.list-group {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.list-group-item{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+
+    background-color: #671E1E;
+    border-color: #671E1E;
+}
+
+.breadcrumb {
+  font-size: 15px;
+  font-weight: normal;
+  padding: 15px 15px;
+}
+
+.alert{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.text-strong{
+    font-weight: bold;
+}
+
+
+.table{
+    font-size: 14px;
+}
+
+#news-slides{
+    margin-top: -21px;
+}
+
+.carousel-control .fa-chevron-left,
+.carousel-control .fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+
+.carousel-control .fa-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+
+.carousel-control .fa-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+
+.carousel-indicators{
+}
+
+    .carousel-indicators li {
+        width: 15px;
+        height: 15px;
+    }
+
+    .carousel-indicators .active {
+        background-color: white;
+        width: 17px;
+        height: 17px;
+        -moz-transition:  background-color 0.5s ease-in-out;
+        -o-transition:  background-color 0.5s ease-in-out;
+        -webkit-transition:  background-color 0.5s ease-in-out;
+        transition:  background-color 0.5s ease-in-out;
+    }
+
+
+#top-nav {
+    background-color: #F5F5F5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-brand {
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+#title-header {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.header-controls {
+    padding-top: 30px;
+}
+
+
+
+#maccim-title {
+    margin-left: 50px;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+
+#maccim-title-mobile {
+}
+
+#maccim-title > a {
+    color: #333333;
+}
+
+    #maccim-title > a:hover {
+        color: #A94442;
+    }
+
+#header-search {
+    padding-top: 40px;
+    padding-bottom: 15px;
+    vertical-align: middle;
+}
+
+.custom-dd {
+    background-color: #090909;
+    border-color: #090909;
+    /*width: 350px;*/
+}
+
+.search-dd {
+    min-width: 350px;
+}
+
+    .search-dd li {
+        padding: 10px;
+        background-color: #272727;
+        border-color: #272727;
+        border-bottom: 5px solid #A94442;
+    }
+
+
+.custom-dd li {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #272727;
+    border-color: #272727;
+}
+
+a.dd-btn {
+    text-align: left;
+    color: white;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.navbar-fixed-top {
+    -moz-transition: top ease-in-out 1s;
+    -o-transition: top ease-in-out 1s;
+    -webkit-transition: top ease-in-out 1s;
+    transition: top ease-in-out 1s;
+}
+
+.navbar .btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.custom-dd li {
+    background-color: #272727;
+    border-color: #272727;
+}
+
+.navbar-nav  li  a {
+    padding: 20px;
+    line-height: 20px;
+}
+
+  .navbar .btn {
+        padding: 15px 20px;
+        line-height: 15px;
+    }
+
+    a.dd-btn {
+        background-color: #272727;
+        border-color: #272727;
+        font-weight: bold;
+    }
+
+        a.dd-btn:hover, a.dd-btn.active {
+            background-color: #671E1E;
+            border-color: #671E1E;
+            color: white;
+        }
+
+            a.dd-btn.active:hover {
+                background-color: #671E1E;
+                border-color: #671E1E;
+                color: white;
+            }
+
+
+.navbar-brand{
+    padding-top:6px;
+    padding-bottom:12px;
+
+}
+
+@media(min-width: 768px) {
+    .maccim-logo {
+        margin-right: 20px;
+    }
+
+    .maccim-name {
+        overflow: hidden;
+        -moz-transition: width ease-in-out 0.2s;
+        -o-transition: width ease-in-out 0.2s;
+        -webkit-transition: width ease-in-out 0.2s;
+        transition: width ease-in-out 0.2s;
+    }
+
+    .custom-dd li {
+        min-width: 300px;
+        border-bottom: 5px solid #A94442;
+    }
+
+    .navbar .btn:active {
+        background-color: #671E1E;
+        border-color: #671E1E;
+        color: white;
+    }
+
+
+
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+}

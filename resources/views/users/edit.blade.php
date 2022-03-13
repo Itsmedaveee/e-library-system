@@ -1,14 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
 
 
-<div id="content" class="content">
-		
-				<!-- end breadcrumb -->
-				<!-- begin page-header -->
-				<h1 class="page-header">Edit Administrator </h1>
-				<!-- end page-header -->
-				<!-- begin panel -->
+{{-- <div id="content" class="content">
+		 
+				<h1 class="page-header">Edit Administrator </h1> 
 				<div class="row">
 				<div class="col-md-12">
 				<div class="panel panel-inverse">
@@ -21,7 +17,14 @@
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 						</div>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body"> --}}
+	<div class="container">
+			<h2>Edit User</h2>
+			<div class="col-md-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Edit User</div>
+				<div class="panel-body">
+
 						<form method="POST" action="/users/{{ $user->id }}">
 							@csrf
 							{{ method_field('PATCH') }}

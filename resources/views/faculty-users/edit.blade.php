@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
 
-<div id="content" class="content">
+{{-- <div id="content" class="content">
 				<!-- begin breadcrumb -->
 				<ol class="breadcrumb float-xl-right">
 					<li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -23,7 +23,13 @@
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 						</div>
-					</div>
+					</div> --}}
+			<div class="container">
+			<h2>Edit Faculty User</h2>
+			<div class="col-md-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Edit Faculy User</div>
+				<div class="panel-body">
 					<div class="panel-body">
 						<form method="POST" action="/faculty-users/{{ $user->id }}">
 							@csrf

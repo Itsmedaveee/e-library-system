@@ -1,23 +1,12 @@
-@extends('layouts.master')
-@section('content')
-<div id="content" class="content">
-<!-- end breadcrumb -->
-<!-- begin page-header -->
-<h1 class="page-header">Library </h1>
-<!-- end page-header --> 
-<div class="row">
-   <div class="col-md-12">
-      <div class="panel panel-inverse">
-         <div class="panel-heading">
-            <div class="panel-heading-btn">
-               <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-               <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-               <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-               <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-            </div>
-         </div>
-         <div class="panel-body">
-            <form method="GET" action="/faculty/home">
+@extends('layouts.app')
+@section('content') 
+   <div class="container">
+         <h2>Library</h2>
+         <div class="col-md-12">
+            <div class="panel panel-default">
+            <div class="panel-heading">Library</div>
+            <div class="panel-body">
+        {{--     <form method="GET" action="/faculty/home">
                <div class="form-group">
                   <label>Search</label>
                   <input type="text" name="search" class="form-control">
@@ -25,11 +14,30 @@
                <div class="form-group">
                   <button type="submit" class="btn btn-primary">Search</button>
                </div>
-            </form>
+            </form> --}}
+
+            <table class="table table-bordered table-hover" id="myTable">
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>Category</th>
+                     <th>Options</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  @foreach ($categories as $category)
+                  <tr>
+                     <td>{{ $category->id }}</td>
+                     <td>{{ $category->title }}</td>
+                     <td><a href="/categories/{{ $category->id }}/show" class="btn btn-primary btn-xs">Show Books</a></td>
+                  </tr>
+                  @endforeach
+               </tbody>
+            </table>
          </div>
       </div>
    </div>
-   <div class="col-md-12">
+{{--    <div class="col-md-12">
       <div class="panel panel-inverse">
          <div class="panel-heading">
             <div class="panel-heading-btn">
@@ -69,7 +77,7 @@
             @endforeach
            </div>
 
-        </div>
+        </div> --}}
 
              {{--   <div class="news">
                   <div class="row align-items-center">
@@ -98,3 +106,12 @@
    </div>
 </div>
 @endsection
+
+@push ('scripts')
+<script type="text/javascript">
+   $(document).ready( function () {
+       $('#myTable').DataTable();
+   });
+</script>
+
+@endpush
