@@ -35,6 +35,7 @@
   </div>
   </div>
 
+   @auth
    <div id="more-links" style="margin-top: 25%;">
       <div class="container">
         <div class="row">
@@ -102,6 +103,7 @@
         </div>
       </div>
    </div>
+   @endauth
  {{--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
    <script src="{{ asset('/js/app.min.js') }}"></script>
     <script src="{{ asset('/js/apple.min.js') }}"></script>
