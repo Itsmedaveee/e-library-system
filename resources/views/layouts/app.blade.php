@@ -6,7 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
    <link href="{{ asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
-   
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+
    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-paper.css') }}" media="screen">
    <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}" media="screen">
    <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}" media="screen">
@@ -34,8 +35,9 @@
 
   </div>
   </div>
-
+ @if (optional(auth()->user())->isAdmin())
    @auth
+
    <div id="more-links" style="margin-top: 25%;">
       <div class="container">
         <div class="row">
@@ -67,7 +69,7 @@
                 <div class="page-header text-red">
                     <h3><i class="fa fa-external-link fa-fw"></i> QUICK LINKS</h3>
                 </div>
-
+               
                 <ul class="list-unstyled quick-links col-xs-6">
                     <li><a class="footer-links" href="/home">HOME</a></li>
                     <li><a class="footer-links" href="/users">USERS</a></li>
@@ -104,6 +106,7 @@
       </div>
    </div>
    @endauth
+@endif
  {{--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
    <script src="{{ asset('/js/app.min.js') }}"></script>
     <script src="{{ asset('/js/apple.min.js') }}"></script>

@@ -102,4 +102,9 @@ class FacultiesController extends Controller
         $faculty->delete();
         return back()->with('error', 'User has been remove!');
     }
+
+    public function show(User $user)
+    {
+        return view('faculty-users.show', compact('user'));
+    }
 }

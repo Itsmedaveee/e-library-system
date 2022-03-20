@@ -22,6 +22,7 @@
             <li>|</li>
             <li>Author: {{ $book->author }}</li>
             <li>|</li>
+            <li><a href="{{ asset('public/storage/avatar', $book->upload_file) }}">View PDF</a></li>
             <li>
              <a href="/books/{{ $book->id }}/download" class="btn btn-primary"><i class="fa fa-download"></i> Download PDF</a>
             </li>

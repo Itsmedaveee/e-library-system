@@ -2,10 +2,10 @@
 @section('content')
  
 <<div class="container">
-			<h2>Collections</h2>
+			<h2>Reports</h2>
 			<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading"> Collections</div>
+				<div class="panel-heading"> Reports</div>
 				<div class="panel-body"> 
 						<div class="form-group">
 							<a href="/pdf-collections" class="btn btn-primary btn-md">PDF</a>

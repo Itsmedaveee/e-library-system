@@ -150,6 +150,7 @@
 									<td>{{ $student->id_number }}</td>
 									<td>{{ $student->name }}</td>
 									<td><a href="/students/{{ $student->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
+										<a href="/students/{{ $student->id }}" class="btn btn-info btn-xs">Show</a>
 										<form method="POST" action="/students/{{ $student->id }}" style="display:inline-block;">
 											@csrf
 											{{ method_field('PATCH') }}

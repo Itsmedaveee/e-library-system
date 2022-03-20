@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Student;
-use App\Role;
+use App\Role; 
+use App\Mail\SendingMail;
+use Illuminate\Support\Facades\Mail;
+
 class StudentsController extends Controller
 {
     public function index()
@@ -22,15 +25,16 @@ class StudentsController extends Controller
             'gender' => 'required',  
             'section' => 'required',  
             'email' => 'required|email|unique:users',
-            'year_level'    => 'required', 
-            'name'  => 'required', 
+            'year_level'    => 'required',   
         ]);
+
+        $student = request('email');
         $student = Student::create([
             'id_number' => request('id_number'),
             'name' => request('name'),
             'gender' => request('gender'),
             'section' => request('section'),
-            'email' => request('email'),
+            'email' => $student,
             'year_level' => request('year_level'),
         ]);
 
@@ -44,6 +48,7 @@ class StudentsController extends Controller
 
         $student->user()->associate($user)->save();
         $user->role()->associate($role)->save();
+        Mail::to($user->email)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
     }
 
@@ -75,5 +80,10 @@ class StudentsController extends Controller
         $student->user()->associate($user)->save();
         $user->role()->associate($role)->save();
         return redirect('/students')->with('info', 'Student has been updated!');
+    }
+
+    public function show(Student $student)
+    {
+        return view('students.show', compact('student'));
     }
 }

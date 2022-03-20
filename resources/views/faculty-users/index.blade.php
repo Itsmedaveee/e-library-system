@@ -148,9 +148,6 @@
 								<th>ID No.</th>
 								<th>Name</th>
 								<th>Department</th>
-								<th>Gender</th>
-								<th>Email</th>
-								<th>Username</th>
 								<th>Actions</th>
 							</thead>
 							<tbody>
@@ -160,10 +157,9 @@
 									<td>{{ $user->faculty->id_number }}</td>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->faculty->department->name ?? null }}</td>
-									<td>{{ $user->faculty->gender }}</td>
-									<td>{{ $user->email }}</td>
-									<td>{{ $user->username }}</td>
+								 
 									<td><a href="/faculty-users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
+										<a href="/faculty-users/{{ $user->id }}/show" class="btn btn-warning btn-xs">Show </a>
 										<form method="POST" action="/faculty-users/{{ $user->id }}" style="display:inline-block">
 												{{ method_field('DELETE') }}
 												@csrf

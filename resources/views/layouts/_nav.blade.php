@@ -50,7 +50,7 @@
 
 <li>
     <a href="/collections">
-        <b>COLLECTIONS</b>
+        <b>REPORTS</b>
     </a>
 </li>
 
@@ -105,7 +105,7 @@
 <div class="navbar navbar-inverse main-nav">
     <div class="container">
         <div class="navbar-header">       
-            <a href="/" class="navbar-brand">
+            <a href="#" class="navbar-brand">
 
                 <span class="navbar-logo text-uppercase">
                  <p style="font-family: century gothic"> <small>E-Library System </small></p>
@@ -186,23 +186,28 @@
 
 <li>
     <a href="/collections">
-        <b>COLLECTIONS</b>
+        <b>REPORTS</b>
     </a>
-</li>
-
-<li>
-    @guest
-    <a href="/login">
-        <b>LOGIN</b>
-    </a>
-    @endguest 
-        <a href="/logout" onclick="event.preventDefault(); 
+</li>   
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>{{ auth()->user()->name }}</b> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/settings"><b>SETTINGS</b></a></li> 
+            <li> <a href="/logout" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" class="dropdown-item">
         <b>LOGOUT</b>
         </a>
         <form id="logout-form" action="/logout" method="POST" style="display: none;">
         {{ csrf_field() }}
-        </form> 
+        </form> </li>
+          </ul>
+        </li> 
+    @guest
+    <a href="/login">
+        <b>LOGIN</b>
+    </a>
+    @endguest 
+     
 </li>
 
 

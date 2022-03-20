@@ -7,10 +7,9 @@
                 <div class="row">
                     <div class="col-lg-5 mx-auto">
                         <div class="card">
-                            <div class="card-body p-0 auth-header-box">
+                            <div class="card-body p-0 auth-header-box" style="background:#0B297F;">
                                 <div class="text-center p-3">
-                                 
-                                    <h4 class="mt-3 mb-1 font-weight-semibold text-black font-18">Let's Get Started to Login</h4>   
+                                    <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Let's Get Started to Login</h4>   
                                 </div>
                             </div>
                             <div class="card-body p-0">

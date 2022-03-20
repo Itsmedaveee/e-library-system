@@ -3,8 +3,22 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});        
+    return view('auth.login');
+});     
+
+Route::get('/test/{book}', function ($book) {
+      // file path
+     $path = public_path('storage/avatar' . '/' . $book->upload_file);
+      // header
+     $header = [
+       'Content-Type' => 'application/pdf',
+       'Content-Disposition' => 'inline; filename="' . $book . '"'
+     ];
+    return response()->file($path, $header);
+})->name('pdf');
+
+Route::get('/settings', 'SettingsController@index');   
+Route::patch('/settings', 'SettingsController@update');   
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -22,6 +36,7 @@ Route::resource('/categories', 'CategoriesController');
  Route::get('/faculty-users', 'FacultiesController@index');
  Route::post('/faculty-users', 'FacultiesController@store');
  Route::get('/faculty-users/{user}/edit', 'FacultiesController@edit');
+ Route::get('/faculty-users/{user}/show', 'FacultiesController@show');
  Route::patch('/faculty-users/{user}', 'FacultiesController@update');
  Route::delete('/faculty-users/{user}', 'FacultiesController@destroy');
 

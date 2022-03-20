@@ -5,7 +5,7 @@
    <div id="header" class="header navbar-inverse" style="background: linear-gradient(rgb(43, 74, 160), rgb(43, 76, 165));">
          <!-- begin navbar-header -->
          <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><span></span> {{-- <img src="{{ asset('img/dhvsu.png') }}"> --}} &nbsp; 
+            <a href="#" class="navbar-brand"><span></span> {{-- <img src="{{ asset('img/dhvsu.png') }}"> --}} &nbsp; 
 
 
                <b>E-LIBRARY SYSTEM</b> &nbsp;  

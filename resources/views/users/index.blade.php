@@ -71,7 +71,7 @@
 			<h2>Users</h2>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-				<div class="panel-heading">Panel Heading</div>
+				<div class="panel-heading">Add User</div>
 				<div class="panel-body">
 					<form method="POST" action="/users" id="myTable">
 							@csrf

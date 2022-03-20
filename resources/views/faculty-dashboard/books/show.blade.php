@@ -38,7 +38,7 @@
             </form>
          </div>
       </div> 
-@foreach ($category->books as $book)
+@forelse  ($category->books as $book)
   <div class="well">
       <div class="media">
          <a class="pull-left" href="#"> 
@@ -60,9 +60,12 @@
             
          </ul>
        </div>
+
     </div>
   </div>
-       @endforeach
+   @empty
+         <p>No Search found</p>
+       @endforelse
 </div>
 @endsection
 
