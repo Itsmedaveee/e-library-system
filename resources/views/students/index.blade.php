@@ -124,6 +124,31 @@
 							</div>
 							</div>
 
+								<div class="col-md-6">
+							<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+								<label>Username</label>
+								<input type="text" class="form-control" name="username">
+								<span class="help-block	">	                          
+								@if ($errors->has('username'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('username') }}</strong>
+								    </span>
+								@endif
+							</div>
+							</div>
+							<div class="col-md-6">
+							<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+								<label>Password</label>
+								<input type="password" class="form-control" name="password">
+								<span class="help-block	">	                          
+								@if ($errors->has('password'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('password') }}</strong>
+								    </span>
+								@endif
+							</div>
+							</div>
+
 						{{-- 	<div class="form-group">
 								<label>Password</label>
 								<input type="password" class="form-control" name="password">

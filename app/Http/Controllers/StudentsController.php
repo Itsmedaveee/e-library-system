@@ -26,8 +26,7 @@ class StudentsController extends Controller
             'section' => 'required',  
             'email' => 'required|email|unique:users',
             'year_level'    => 'required',   
-        ]);
-
+        ]); 
         $student = request('email');
         $student = Student::create([
             'id_number' => request('id_number'),
@@ -43,12 +42,13 @@ class StudentsController extends Controller
             'username'  => request('id_number'),
             'name'  => request('name'),
             'email'  => $student->email,
-            'password'  => bcrypt(request('email'))
+            'username'  => request('username'),
+            'password'  => bcrypt(request('password'))
         ]);
 
         $student->user()->associate($user)->save();
         $user->role()->associate($role)->save();
-        Mail::to($student->email)->send(new SendingMail($student));
+        Mail::to($student)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
     }
 
