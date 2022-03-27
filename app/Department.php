@@ -10,7 +10,7 @@ class Department extends Model
         'name'
     ];
 
-    public function faculty()
+    public function faculties()
     {
         return $this->hasMany(Faculty::class);
     }

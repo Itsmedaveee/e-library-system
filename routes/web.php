@@ -6,16 +6,16 @@ Route::get('/', function () {
     return view('auth.login');
 });     
 
-Route::get('/test/{book}', function ($book) {
-      // file path
-     $path = public_path('storage/avatar' . '/' . $book->upload_file);
-      // header
-     $header = [
-       'Content-Type' => 'application/pdf',
-       'Content-Disposition' => 'inline; filename="' . $book . '"'
-     ];
-    return response()->file($path, $header);
-})->name('pdf');
+// Route::get('/test/{book}', function ($book) {
+//       // file path
+//      $path = public_path('storage/avatar' . '/' . $book->upload_file);
+//       // header
+//      $header = [
+//        'Content-Type' => 'application/pdf',
+//        'Content-Disposition' => 'inline; filename="' . $book . '"'
+//      ];
+//     return response()->file($path, $header);
+// })->name('pdf');
 
 Route::get('/settings', 'SettingsController@index');   
 Route::patch('/settings', 'SettingsController@update');   

@@ -48,7 +48,7 @@ class StudentsController extends Controller
 
         $student->user()->associate($user)->save();
         $user->role()->associate($role)->save();
-        Mail::to($user->email)->send(new SendingMail($student));
+        Mail::to($student->email)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
     }
 

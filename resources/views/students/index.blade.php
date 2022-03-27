@@ -73,7 +73,14 @@
 							<div class="form-group{{ $errors->has('yea_level') ? ' has-error' : '' }}">
 								<label>Year Level</label>
 								<select class="form-control" name="year_level">
-									 <option value="" disabled="" selected="">Select Year Level</option>
+									 <option value="" disabled="" selected="">Select Grade/Year Level</option>
+
+										<option value="Grade 7">Grade 7</option>
+										<option value="Grade 8">Grade 8</option>
+										<option value="Grade 9">Grade 9</option>
+										<option value="Grade 10">Grade 10</option>
+										<option value="Grade 11">Grade 11</option>
+										<option value="Grade 12">Grade 12</option>
 										<option value="1st Year">1st Year</option>
 										<option value="2nd Year">2nd Year</option>
 										<option value="3rd Year">3rd Year</option>
@@ -90,7 +97,7 @@
 							</div>
 							<div class="col-md-4">
 							<div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
-								<label>Section</label>
+								<label>Course/Section</label>
 								<input type="text" class="form-control" name="section">
 								<span class="help-block	">	                          
 								@if ($errors->has('section'))
