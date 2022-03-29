@@ -144,7 +144,6 @@
 				<div class="panel-body">
 						<table class="table table-bordered table-hover" id="myTable">
 							<thead>
-								<th>ID</th>
 								<th>ID No.</th>
 								<th>Name</th>
 								<th>Department</th>
@@ -153,7 +152,6 @@
 							<tbody>
 								@foreach ($faculties as $user)
 								<tr>
-									<td>{{ $user->id }}</td>
 									<td>{{ $user->faculty->id_number }}</td>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->faculty->department->name ?? null }}</td>

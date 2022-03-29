@@ -10,6 +10,8 @@
                <form method="POST" action="/settings" id="myTable">
                      @csrf
                      {{ method_field('PATCH') }}
+
+                @if (auth()->user()->isAdmin())
                   <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label>Name</label>
                         <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
@@ -41,6 +43,7 @@
                             </span>
                         @endif
                      </div>
+                    @endif
                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <label>Password</label>
                         <input type="password" class="form-control" name="password">
