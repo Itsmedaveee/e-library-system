@@ -72,6 +72,17 @@
 								<label>Username</label>
 								<input type="text" class="form-control" name="username">
 							</div>	 --}}		
+
+						<div class="form-group">
+								<label>Department</label>
+								<select class="form-control" name="department">
+									<option >Select Department</option>
+									@foreach ($departments as $departmentId => $department)
+										<option value="{{ $departmentId }}" {{ $student->department_id == $departmentId ? 'selected' : '' }}>{{ $department }}</option>
+									@endforeach
+								</select>
+							</div>	
+
 							<div class="form-group">
 								<label>Email</label>
 								<input type="text" class="form-control" name="email" value="{{ $student->email }}">

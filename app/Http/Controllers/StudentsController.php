@@ -59,11 +59,21 @@ class StudentsController extends Controller
 
     public function edit(Student $student)
     {
-        return view('students.edit', compact('student'));
+        $departments = Department::pluck('name', 'id');
+        return view('students.edit', compact('student', 'departments'));
     }
 
     public function update(Student $student)
     {
+
+        $this->validate(request(), [
+            'id_number' => 'required',  
+            'name' => 'required',  
+            'gender' => 'required',  
+            'section' => 'required',  
+            'year_level'    => 'required',   
+        ]); 
+            
          $student->update([
             'id_number' => request('id_number'),
             'name' => request('name'),
