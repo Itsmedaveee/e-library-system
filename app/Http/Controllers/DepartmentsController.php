@@ -40,7 +40,7 @@ class DepartmentsController extends Controller
 
     public function show(Department $department)
     {
-        $department->load('faculties');
+        $department->load('students');
         return view('departments.show', compact('department'));
     }
 

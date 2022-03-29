@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Student;
 use App\Role; 
+use App\Department; 
 use App\Mail\SendingMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -13,8 +14,9 @@ class StudentsController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
-        return view('students.index', compact('students'));
+        $students = Student::with('department')->get();
+        $departments = Department::pluck('name', 'id');
+        return view('students.index', compact('students', 'departments'));
     }
 
     public function store(Request $request)
@@ -27,6 +29,8 @@ class StudentsController extends Controller
             'email' => 'required|email|unique:users',
             'year_level'    => 'required',   
         ]); 
+
+        $department = Department::find(request('department'));
         $student = request('email');
         $student = Student::create([
             'id_number' => request('id_number'),
@@ -47,6 +51,7 @@ class StudentsController extends Controller
         ]);
 
         $student->user()->associate($user)->save();
+        $student->department()->associate($department)->save();
         $user->role()->associate($role)->save();
         Mail::to($student)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
@@ -68,6 +73,7 @@ class StudentsController extends Controller
             'year_level' => request('year_level'),
         ]);
 
+        $department = Department::find(request('department'));
         $role = Role::where('name', 'Student')->first();
         $user = User::first();
         $user->update([
@@ -78,12 +84,14 @@ class StudentsController extends Controller
         ]);
 
         $student->user()->associate($user)->save();
+        $student->department()->associate($department)->save();
         $user->role()->associate($role)->save();
         return redirect('/students')->with('info', 'Student has been updated!');
     }
 
     public function show(Student $student)
     {
+        $student->load('department');
         return view('students.show', compact('student'));
     }
 }

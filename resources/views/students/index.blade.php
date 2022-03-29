@@ -107,6 +107,25 @@
 								@endif
 							</div>
 							</div>
+
+						<div class="col-md-4">
+							<div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
+								<label>Department</label>
+								<select class="form-control" name="department">
+							  <option value="" disabled="" selected="">Select Department</option>
+
+									@foreach ($departments as $departmentId => $department)
+										<option value="{{ $departmentId }}">{{ $department }}</option>
+									@endforeach
+								</select>
+								<span class="help-block	">	                          
+								@if ($errors->has('department'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('department') }}</strong>
+								    </span>
+								@endif
+							</div>			
+							</div>	
 						{{-- 	<div class="form-group">
 								<label>Username</label>
 								<input type="text" class="form-control" name="username">
@@ -124,7 +143,7 @@
 							</div>
 							</div>
 
-								<div class="col-md-6">
+								<div class="col-md-4">
 							<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 								<label>Username</label>
 								<input type="text" class="form-control" name="username">
@@ -136,7 +155,7 @@
 								@endif
 							</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 							<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 								<label>Password</label>
 								<input type="password" class="form-control" name="password">

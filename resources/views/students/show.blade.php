@@ -14,6 +14,9 @@
 								<th>ID No: {{ $student->id_number }}</th>
 								<th>Name: {{ $student->name }}</th>
 								<th>Email: {{ $student->user->email }}</th>
+								<th>Department: {{ $student->department->name }}</th>
+								<th>Year Level: {{ $student->year_level }}</th>
+								<th>Section/Course: {{ $student->section }}</th>
 								<th>Gender: {{ $student->gender }}</th>
 								<th>Username: {{ $student->user->username }}</th>
 							</tr>

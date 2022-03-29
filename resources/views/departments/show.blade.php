@@ -25,7 +25,7 @@
 			</div>
 				<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Faculty Lists</div>
+				<div class="panel-heading">Student Lists</div>
 				<div class="panel-body">
 					<table class="table table-bordered">
 						<thead>
@@ -36,11 +36,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($department->faculties as $faculty)
+							@foreach ($department->students as $student)
 							<tr>
-								<td>{{ $faculty->id_number }}</td>
-								<td>{{ $faculty->name }}</td>
-								<td>{{ $faculty->gender }}</td>
+								<td>{{ $student->id_number }}</td>
+								<td>{{ $student->name }}</td>
+								<td>{{ $student->gender }}</td>
 							</tr>
 							@endforeach
 						</tbody>
