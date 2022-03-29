@@ -140,7 +140,7 @@
 
 			<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Faculy Lists</div>
+				<div class="panel-heading">Faculty Lists</div>
 				<div class="panel-body">
 						<table class="table table-bordered table-hover" id="myTable">
 							<thead>
