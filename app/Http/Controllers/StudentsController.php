@@ -85,17 +85,17 @@ class StudentsController extends Controller
 
         $department = Department::find(request('department'));
         $role = Role::where('name', 'Student')->first();
-        $user = User::first();
-        $user->update([
+       // $user = User::first();
+        $student->user()->update([
             'username'  => request('id_number'),
             'name'  => request('name'),
             'email'  => $student->email,
             'password'  => bcrypt(request('email'))
         ]);
 
-        $student->user()->associate($user)->save();
+        //$student->user()->associate($user)->save();
         $student->department()->associate($department)->save();
-        $user->role()->associate($role)->save();
+       // $user->role()->associate($role)->save();
         return redirect('/students')->with('info', 'Student has been updated!');
     }
 
@@ -103,5 +103,11 @@ class StudentsController extends Controller
     {
         $student->load('department');
         return view('students.show', compact('student'));
+    }
+
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return back()->with('error', 'Student has been removed!');
     }
 }

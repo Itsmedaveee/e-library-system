@@ -204,7 +204,7 @@
 										<a href="/students/{{ $student->id }}" class="btn btn-info btn-xs">Show</a>
 										<form method="POST" action="/students/{{ $student->id }}" style="display:inline-block;">
 											@csrf
-											{{ method_field('PATCH') }}
+											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Remove</button>
 										</form>
 									</td>

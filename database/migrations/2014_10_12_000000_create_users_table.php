@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('department_id')->default(0);
             $table->string('name');
             $table->string('username');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
