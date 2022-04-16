@@ -47,8 +47,8 @@
 								<label>Gender</label>
 								<select class="form-control" name="gender">
 									<option disabled>Select Gender</option>
-										<option value="Male"{{ $student->gender == 'Male' ? 'checked' : '' }}>Male</option>
-										<option value="Female"{{ $student->gender == 'Female' ? 'checked' : '' }}>Female</option>
+										<option value="Male"{{ $student->gender == 'Male' ? 'selected' : '' }}>Male</option>
+										<option value="Female"{{ $student->gender == 'Female' ? 'selected' : '' }}>Female</option>
 								</select>
 							</div>
 
@@ -56,11 +56,11 @@
 								<label>Year Level</label>
 								<select class="form-control" name="year_level">
 									<option disabled>Select Year Level</option>
-										<option value="1st Year"{{ $student->year_level == '1st Year' ? 'checked' : '' }}>1st Year</option>
-										<option value="2nd Year"{{ $student->year_level == '2nd Year' ? 'checked' : '' }}>2nd Year</option>
-										<option value="3rd Year"{{ $student->year_level == '3rd Year' ? 'checked' : '' }}>3rd Year</option>
-										<option value="4th Year"{{ $student->year_level == '4th Year' ? 'checked' : '' }}>4th Year</option>
-										<option value="5th Year"{{ $student->year_level == '5th Year' ? 'checked' : '' }}>5th Year</option>
+										<option value="1st Year"{{ $student->year_level == '1st Year' ? 'selected' : '' }}>1st Year</option>
+										<option value="2nd Year"{{ $student->year_level == '2nd Year' ? 'selected' : '' }}>2nd Year</option>
+										<option value="3rd Year"{{ $student->year_level == '3rd Year' ? 'selected' : '' }}>3rd Year</option>
+										<option value="4th Year"{{ $student->year_level == '4th Year' ? 'selected' : '' }}>4th Year</option>
+										<option value="5th Year"{{ $student->year_level == '5th Year' ? 'selected' : '' }}>5th Year</option>
 								</select>
 							</div>
 
