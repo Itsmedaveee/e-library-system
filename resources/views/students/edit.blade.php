@@ -56,6 +56,12 @@
 								<label>Year Level</label>
 								<select class="form-control" name="year_level">
 									<option disabled>Select Year Level</option>
+										<option value="Grade 7"{{ $student->year_level == 'Grade 7' ? 'selected' : '' }}>Grade 7</option>
+										<option value="Grade 8"{{ $student->year_level == 'Grade 8' ? 'selected' : '' }}>Grade 8</option>
+										<option value="Grade 9"{{ $student->year_level == 'Grade 9' ? 'selected' : '' }}>Grade 9</option>
+										<option value="Grade 10"{{ $student->year_level == 'Grade 10' ? 'selected' : '' }}>Grade 10</option>
+										<option value="Grade 11"{{ $student->year_level == 'Grade 11' ? 'selected' : '' }}>Grade 11</option>
+										<option value="Grade 12"{{ $student->year_level == 'Grade 12' ? 'selected' : '' }}>Grade 12</option>
 										<option value="1st Year"{{ $student->year_level == '1st Year' ? 'selected' : '' }}>1st Year</option>
 										<option value="2nd Year"{{ $student->year_level == '2nd Year' ? 'selected' : '' }}>2nd Year</option>
 										<option value="3rd Year"{{ $student->year_level == '3rd Year' ? 'selected' : '' }}>3rd Year</option>
@@ -87,6 +93,16 @@
 								<label>Email</label>
 								<input type="text" class="form-control" name="email" value="{{ $student->email }}">
 							</div>
+
+							<div class="form-group">
+								<label>Username</label>
+								<input type="text" class="form-control" name="username" value="{{ $student->user->username }}">
+							</div>
+
+						<div class="form-group">
+							<label>Password</label>
+							<input type="text" class="form-control" name="password" >
+						</div>
 
 						{{-- 	<div class="form-group">
 								<label>Password</label>

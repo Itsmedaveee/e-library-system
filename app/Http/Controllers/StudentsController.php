@@ -30,14 +30,13 @@ class StudentsController extends Controller
             'year_level'    => 'required',   
         ]); 
 
-        $department = Department::find(request('department'));
-        $student = request('email');
+        $department = Department::find(request('department')); 
         $student = Student::create([
             'id_number' => request('id_number'),
             'name' => request('name'),
             'gender' => request('gender'),
             'section' => request('section'),
-            'email' => $student,
+            'email' => request('email'),
             'year_level' => request('year_level'),
         ]);
 
@@ -63,7 +62,7 @@ class StudentsController extends Controller
         return view('students.edit', compact('student', 'departments'));
     }
 
-    public function update(Student $student)
+    public function update(Student $student, Request $request)
     {
 
         $this->validate(request(), [
@@ -72,6 +71,7 @@ class StudentsController extends Controller
             'gender' => 'required',  
             'section' => 'required',  
             'year_level'    => 'required',   
+           'password'                  => 'required_if:password,value',
         ]); 
             
          $student->update([
@@ -83,14 +83,20 @@ class StudentsController extends Controller
             'year_level' => request('year_level'),
         ]);
 
+
         $department = Department::find(request('department'));
         $role = Role::where('name', 'Student')->first();
+        if ($request->password != null) {
+            $student->user->update([
+                'password'     => bcrypt(request('password')),
+            ]);
+        }
+
        // $user = User::first();
         $student->user()->update([
-            'username'  => request('id_number'),
+            'username'  => request('username'),
             'name'  => request('name'),
-            'email'  => $student->email,
-            'password'  => bcrypt(request('email'))
+            'email'  => request('email'), 
         ]);
 
         //$student->user()->associate($user)->save();
