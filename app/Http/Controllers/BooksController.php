@@ -63,6 +63,15 @@ class BooksController extends Controller
 
     public function update(Book $book, Request $request)
     {
+
+         $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required',
+            'author' => 'required',
+            'category' => 'required',
+            'upload_photo' => 'required',
+            'upload_file' => 'required',
+       ]);  
  
        $image = $request->upload_photo;
         if (request()->hasFile('upload_photo')) {

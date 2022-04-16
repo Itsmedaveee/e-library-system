@@ -40,13 +40,23 @@
 								<input type="text" class="form-control" name="author" value="{{ $book->author }}">
 							</div>
 
-							<div class="form-group">
+						<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
 								<label>Upload Photo</label>
 								<input type="file" name="upload_photo" class="form-control">
+								@if ($errors->has('upload_photo'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('upload_photo') }}</strong>
+								    </span>
+								@endif
 							</div>							
-							<div class="form-group">
+							<div class="form-group{{ $errors->has('upload_file') ? ' has-error' : '' }}">
 								<label>Upload PDF</label>
 								<input type="file" name="upload_file" class="form-control" value="{{ Storage::url($book->upload_file) }}">
+								@if ($errors->has('upload_file'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('upload_file') }}</strong>
+								    </span>
+								@endif
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>
