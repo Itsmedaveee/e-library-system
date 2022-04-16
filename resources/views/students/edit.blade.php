@@ -101,7 +101,7 @@
 
 						<div class="form-group">
 							<label>Password</label>
-							<input type="text" class="form-control" name="password" >
+							<input type="password" class="form-control" name="password" >
 						</div>
 
 						{{-- 	<div class="form-group">

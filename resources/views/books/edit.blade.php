@@ -46,7 +46,7 @@
 							</div>							
 							<div class="form-group">
 								<label>Upload PDF</label>
-								<input type="file" name="upload_file" class="form-control">
+								<input type="file" name="upload_file" class="form-control" value="{{ Storage::url($book->upload_file) }}">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>

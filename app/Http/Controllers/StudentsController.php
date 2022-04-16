@@ -71,7 +71,7 @@ class StudentsController extends Controller
             'gender' => 'required',  
             'section' => 'required',  
             'year_level'    => 'required',   
-           'password'                  => 'required_if:password,value',
+           'password'      => 'required_if:password,value',
         ]); 
             
          $student->update([
