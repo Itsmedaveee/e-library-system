@@ -65,7 +65,12 @@ class UsersController extends Controller
 
     public function destroy(User $user) 
     {
+
+        if ($user->id == 1) {
+            return back()->with('warning', 'Unauthorized!');
+        }
         $user->delete();
         return back()->with('error', 'User has been removed!');
     }
+ 
 }

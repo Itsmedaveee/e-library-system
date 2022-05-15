@@ -107,4 +107,9 @@ class FacultiesController extends Controller
     {
         return view('faculty-users.show', compact('user'));
     }
+
+    public function manage(User $user)
+    {
+        return view('faculty-users.manage', compact('user'));
+    }
 }

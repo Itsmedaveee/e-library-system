@@ -207,7 +207,10 @@
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Remove</button>
 										</form>
-									</td>
+
+										<a href="/students/{{ $student->id }}/manage" class="btn btn-primary btn-xs"> Manage</a>
+
+									</td> 
 								</tr>
 								@endforeach
 							</tbody>

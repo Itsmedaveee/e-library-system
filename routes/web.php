@@ -39,10 +39,13 @@ Route::resource('/categories', 'CategoriesController');
  Route::get('/faculty-users/{user}/show', 'FacultiesController@show');
  Route::patch('/faculty-users/{user}', 'FacultiesController@update');
  Route::delete('/faculty-users/{user}', 'FacultiesController@destroy');
+ Route::get('/faculty-users/{user}/manage', 'FacultiesController@manage');
 
  //Students
  Route::resource('/students', 'StudentsController');
-
+ Route::patch('/activate-user/{user}', 'StudentsController@activate');
+ Route::patch('/deactivate-user/{user}', 'StudentsController@deactivate');
+ Route::get('/students/{student}/manage', 'StudentsController@manage');
 
 //Faculty Dashboard
  Route::get('/faculty/home', 'FacultyDashboardController@index'); 

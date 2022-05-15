@@ -116,4 +116,22 @@ class StudentsController extends Controller
         $student->delete();
         return back()->with('error', 'Student has been removed!');
     }
+
+    public function activate(User $user) 
+    {
+        $user->update(['status' => 1]);
+        return back()->with('success', 'Activate User Success!');
+    }
+
+    public function deactivate(User $user)
+    {
+        $user->update(['status' => 0]);
+        return back()->with('error', 'Deactivate User Success!');
+    }
+
+    public function manage(Student $student)
+    {
+        return view('students.manage', compact('student'));
+    }
+
 }

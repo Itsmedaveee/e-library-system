@@ -21,8 +21,8 @@ class BooksController extends Controller
             'body' => 'required',
             'author' => 'required',
             'category' => 'required',
-            'upload_photo' => 'required',
-            'upload_file' => 'required',
+            'upload_photo' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'upload_file' => 'required|file|mimes:csv,pdf',
        ]);  
        $image = $request->upload_photo;
         if (request()->hasFile('upload_photo')) {

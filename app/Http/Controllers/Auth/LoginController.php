@@ -67,14 +67,31 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
         $username = $request->get($this->username());
         $user = User::where($this->username(), $username)->first();
+        if ($user && $user->approved === 0) {
+            return $this->sendFailedLoginResponse($request, 'auth.status');
+        }
+
+        elseif ($user && $user->status === 0) {
+            return $this->sendFailedLoginResponse($request, 'auth.status');
+        }
         return $this->sendFailedLoginResponse($request);
     }
 
     protected function credentials(Request $request)
     {
         $credentials = $request->only($this->username(), 'password');
+        $credentials['status'] = 1;
+        $credentials['status'] = 1; 
         return $credentials;
     }
+
+   protected function sendFailedLoginResponse(Request $request, $trans = 'auth.status')
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans($trans)],
+        ]);
+    }
+
 
       protected function authenticated(Request $request, $user)
      {

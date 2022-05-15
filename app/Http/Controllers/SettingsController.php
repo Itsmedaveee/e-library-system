@@ -21,12 +21,9 @@ class SettingsController extends Controller
 
         // ]);
 
-
-
         if ($request->password != null) { 
             auth()->user()->update([
                 'password'           => bcrypt(request('password'))
-
             ]);
         }
 

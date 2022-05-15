@@ -1,17 +1,21 @@
 <html>
    <head>
-      <title>COR</title>
+      <title></title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <style type="text/css">
       </style>
    </head>
    <body>
  <div class="col-md-12"> 
-        <table class="table-bordered table-sm " width="100%" align="center">
+        <table class="table table-sm " width="100%" align="center">
           <tbody>
-            <tr> 
-              <td style="background: #4682B4	; color: #000">
-                  <p class="text-center">
+          
+            <tr>  
+        <td align="right" style="background: #4682B4  ; color: #000">
+          <img src="{{ asset('img/src.png') }}" width="30%">
+            </td>
+              <td rowspan="1" style="background: #4682B4	; color: #fff">
+                  <p>
                     <strong>
                       SANTA RITA COLLEGE OF PAMPANGA <br> 
                       San Jose, Santa Rita Pampanga <br>
