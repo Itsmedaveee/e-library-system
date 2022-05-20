@@ -26,23 +26,27 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/users', 'UsersController');
 //Categories Resource
 Route::resource('/categories', 'CategoriesController');  
+Route::get('/categories/{category}/remove', 'CategoriesController@remove');  
 
 //Books Resource
  Route::resource('/books', 'BooksController');
+ Route::get('/books/{book}/remove', 'BooksController@remove');
  Route::get('/books/{book}/download', 'BooksController@downloadBook');
  //Departments Resource
  Route::resource('/departments', 'DepartmentsController');
+ Route::get('/departments/{department}/remove', 'DepartmentsController@remove');
 
  Route::get('/faculty-users', 'FacultiesController@index');
  Route::post('/faculty-users', 'FacultiesController@store');
  Route::get('/faculty-users/{user}/edit', 'FacultiesController@edit');
  Route::get('/faculty-users/{user}/show', 'FacultiesController@show');
  Route::patch('/faculty-users/{user}', 'FacultiesController@update');
- Route::delete('/faculty-users/{user}', 'FacultiesController@destroy');
+ Route::get('/faculty-users/{user}/remove', 'FacultiesController@destroy');
  Route::get('/faculty-users/{user}/manage', 'FacultiesController@manage');
 
  //Students
  Route::resource('/students', 'StudentsController');
+ Route::get('/students/{student}/remove', 'StudentsController@remove');
  Route::patch('/activate-user/{user}', 'StudentsController@activate');
  Route::patch('/deactivate-user/{user}', 'StudentsController@deactivate');
  Route::get('/students/{student}/manage', 'StudentsController@manage');

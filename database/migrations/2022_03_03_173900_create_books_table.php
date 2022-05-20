@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('upload_photo');
             $table->string('upload_file');
             $table->string('author');
+            $table->date('published');
             $table->timestamps();
         });
     }

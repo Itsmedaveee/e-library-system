@@ -83,6 +83,10 @@
 								@endif
 							</div>
 							<div class="form-group">
+								<label>Date Published</label>
+								<input type="date" name="published" class="form-control">
+							</div>
+							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form>
@@ -123,11 +127,12 @@
 									<td>{{ $book->author }}</td>
 									<td><a href="/books/{{ $book->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
 										<a href="/books/{{ $book->id }}" class="btn btn-warning btn-xs">View</a>
-										<form method="POST" action="/books/{{ $book->id }}" style="display:inline-block;">
+									{{-- 	<form method="POST" action="/books/{{ $book->id }}" style="display:inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Delete</button>
-										</form>
+										</form> --}}
+										<a href="/books/{{ $book->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
 									</td>
 								</tr>
 								@endforeach
@@ -150,4 +155,20 @@
    });
 </script>
  
+ <script>
+   $('.delete-confirm').on('click', function (event) {
+     event.preventDefault();
+     const url = $(this).attr('href');
+     swal({
+         title: 'Are you sure?',
+         text: 'You want to delete this file?',
+         icon: 'warning',
+         buttons: ["Cancel", "Yes!"],
+     }).then(function(value) {
+         if (value) {
+             window.location.href = url;
+         }
+     });
+   });
+</script>
 @endpush

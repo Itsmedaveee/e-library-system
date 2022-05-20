@@ -44,7 +44,7 @@ class DepartmentsController extends Controller
         return view('departments.show', compact('department'));
     }
 
-    public function destroy(Department $department)
+    public function remove(Department $department)
     {
         $department->delete();
         return back()->with('error', 'Department has been remove!');

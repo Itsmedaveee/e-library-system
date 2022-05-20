@@ -44,7 +44,7 @@ class CategoriesController extends Controller
         return view('categories.show', compact('category'));
     }
 
-    public function destroy(Category $category) 
+    public function remove(Category $category) 
     {
         $category->delete();
 

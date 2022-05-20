@@ -13,19 +13,21 @@ class SettingsController extends Controller
 
     public function update(Request $request)
     {
-        // $this->validate(request(),[
+     
 
-        //     'email'                 => 'required',
-        //     'username'              => 'required', 
-            
+    $this->validate(request(),[
+        'name'                  => 'required',
+        'username'              => 'required',
+        'password'              => 'required_if:password,value|confirmed',
+        'password_confirmation' => 'required_if:password,value',
+    ]);
 
-        // ]);
-
-        if ($request->password != null) { 
-            auth()->user()->update([
-                'password'           => bcrypt(request('password'))
-            ]);
-        }
+    if ($request->password != null) { 
+        auth()->user()->update([
+            'password'           => bcrypt(request('password')),
+             'status'        => 1
+        ]);
+    }
 
     if (auth()->user()->isAdmin()) {
            $user = auth()->user()->update([
@@ -33,6 +35,7 @@ class SettingsController extends Controller
             'name'          => $request->name,
             'email'         => $request->email,
             'username'      => $request->username,
+            'status'        => 1
             
         ]);
 

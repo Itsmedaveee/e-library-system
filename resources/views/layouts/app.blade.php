@@ -18,6 +18,8 @@
    <link rel="stylesheet" href="{{ asset('frontend/css/mains.css') }}" media="screen">
    <link rel="stylesheet" href="{{ asset('frontend/css/link.css') }}" media="screen"> 
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
+       <script src="{{ asset('css/sweetalert2/sweetalert2.min.js') }}"></script>
+    <link href="{{ asset('css/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
        <link href="{{ asset('assets/plugins/datatable/DataTables-1.10.18/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" >
 
  
@@ -126,6 +128,7 @@
 
        <script src="{{ asset('assets/plugins/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
    

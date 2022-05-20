@@ -42,6 +42,7 @@ class FacultiesController extends Controller
             'name'  => $facultyName,
             'email'  => request('email'),
             'password'  => bcrypt(request('password')),
+             'status'    => 1
        ]);
 
        $faculty->department()->associate($department)->save();
@@ -87,6 +88,7 @@ class FacultiesController extends Controller
             'username'  => request('username'),
             'name'  => $facultyName,
             'email'  => request('email'),
+             'status'    => 1
        ]);
 
        $faculty->department()->associate($department)->save();

@@ -45,14 +45,38 @@
                      </div>
                     @endif
                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label>Password</label>
+                        <label>  Password</label>
                         <input type="password" class="form-control" name="password">
                         @if ($errors->has('password'))
                             <span class="help-block">
                                 <strong style="color:red;">{{ $errors->first('password') }}</strong>
                             </span>
                         @endif
+                     </div>               
+ 
+
+                     <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <label>  Password Confirmed</label>
+                              <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" autocomplete="current-password">
+                        @if ($errors->has('password_confirmation'))
+                            <span class="help-block">
+                                <strong style="color:red;">{{ $errors->first('password_confirmation') }}</strong>
+                            </span>
+                        @endif
                      </div>
+ 
+
+                     {{-- <div class="form-group{{ $errors->has('new_confirm_password') ? ' has-error' : '' }}">
+                        <label>New Confirm Password</label>
+                              <input id="new_confirm_password" type="password" class="form-control" name="new_confirm_password" autocomplete="current-password">
+                        @if ($errors->has('new_confirm_password'))
+                            <span class="help-block">
+                                <strong style="color:red;">{{ $errors->first('new_confirm_password') }}</strong>
+                            </span>
+                        @endif
+                     </div> --}}
+
+
 
                      <div class="form-group">
                         <button type="submit" class="btn btn-primary">Update</button>

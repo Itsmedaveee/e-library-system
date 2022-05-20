@@ -17,7 +17,7 @@
           <p class="text-right"></p>
           <p>   {{ $book->body }}</p>
           <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i> {{ $book->created_at->toFormattedDateString() }}</span></li>
+  			<li><span><i class="glyphicon glyphicon-calendar"></i> {{ $book->published->toFormattedDateString() }}</span></li>
             
             <li>|</li>
             <li>Author: {{ $book->author }}</li>

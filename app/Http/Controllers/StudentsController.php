@@ -46,7 +46,8 @@ class StudentsController extends Controller
             'name'  => request('name'),
             'email'  => $student->email,
             'username'  => request('username'),
-            'password'  => bcrypt(request('password'))
+            'password'  => bcrypt(request('password')),
+            'status'    => 1
         ]);
 
         $student->user()->associate($user)->save();
@@ -97,6 +98,7 @@ class StudentsController extends Controller
             'username'  => request('username'),
             'name'  => request('name'),
             'email'  => request('email'), 
+             'status'    => 1
         ]);
 
         //$student->user()->associate($user)->save();
@@ -111,7 +113,7 @@ class StudentsController extends Controller
         return view('students.show', compact('student'));
     }
 
-    public function destroy(Student $student)
+    public function remove(Student $student)
     {
         $student->delete();
         return back()->with('error', 'Student has been removed!');

@@ -49,6 +49,7 @@ class BooksController extends Controller
             'author'  => request('author'),
             'upload_photo' => $uploadImage,
             'upload_file' => $uploadFile,
+            'published' =>  request('published')
         ]);
 
         $books->category()->associate($category)->save();
@@ -69,8 +70,8 @@ class BooksController extends Controller
             'body' => 'required',
             'author' => 'required',
             'category' => 'required',
-            'upload_photo' => 'required',
-            'upload_file' => 'required',
+            'upload_photo' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'upload_file' => 'required|file|mimes:csv,pdf',
        ]);  
  
        $image = $request->upload_photo;
@@ -96,6 +97,7 @@ class BooksController extends Controller
             'title' => request('title'),
             'body' => request('body'),
             'author'  => request('author'),
+            'published'  => request('published'),
             'upload_photo' => $uploadImage,
             'upload_file' => $uploadFile,
         ]);
@@ -110,7 +112,7 @@ class BooksController extends Controller
         return view('books.show', compact('book'));
     }
 
-    public function destroy(Book $book)
+    public function remove(Book $book)
     {
         $book->delete();
 

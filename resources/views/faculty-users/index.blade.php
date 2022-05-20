@@ -158,11 +158,12 @@
 								 
 									<td><a href="/faculty-users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
 										<a href="/faculty-users/{{ $user->id }}/show" class="btn btn-warning btn-xs">Show </a>
-										<form method="POST" action="/faculty-users/{{ $user->id }}" style="display:inline-block">
+									{{-- 	<form method="POST" action="/faculty-users/{{ $user->id }}" style="display:inline-block">
 												{{ method_field('DELETE') }}
 												@csrf
 											<button type="sumbit" class="btn btn-danger btn-xs">Delete</button>
-										</form>
+										</form> --}}
+										 <a href="/faculty-users/{{ $user->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
 
 										<a href="/faculty-users/{{ $user->id }}/manage" class="btn btn-primary btn-xs">Manage</a>
 
@@ -189,5 +190,23 @@
        $('#myTable').DataTable();
    });
 </script>
+
+<script>
+   $('.delete-confirm').on('click', function (event) {
+     event.preventDefault();
+     const url = $(this).attr('href');
+     swal({
+         title: 'Are you sure?',
+         text: 'You want to delete this account?',
+         icon: 'warning',
+         buttons: ["Cancel", "Yes!"],
+     }).then(function(value) {
+         if (value) {
+             window.location.href = url;
+         }
+     });
+   });
+</script>
+
 
 @endpush

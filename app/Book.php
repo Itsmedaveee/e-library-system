@@ -12,8 +12,11 @@ class Book extends Model
         'body',
         'upload_photo',
         'upload_file',
+        'published',
         'author'
     ];
+
+    protected $dates = ['published'];
 
     public function category()
     {

@@ -53,11 +53,14 @@
 									<td>{{ $department->created_at }}</td>
 									<td><a href="/departments/{{ $department->id }}" class="btn btn-info btn-xs">Show details</a>
 										<a href="/departments/{{ $department->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
-										<form method="POST" action="/departments/{{ $department->id }}" style="display:inline-block;">
+							{{-- 			<form method="POST" action="/departments/{{ $department->id }}" style="display:inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Delete </button>
-										</form>
+										</form> --}}
+
+										 <a href="/departments/{{ $department->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
+
 									</td>
 								</tr>
 								@endforeach
@@ -82,5 +85,24 @@
        $('#myTable').DataTable();
    });
 </script>
+
+
+<script>
+   $('.delete-confirm').on('click', function (event) {
+     event.preventDefault();
+     const url = $(this).attr('href');
+     swal({
+         title: 'Are you sure?',
+         text: 'You want to delete this file?',
+         icon: 'warning',
+         buttons: ["Cancel", "Yes!"],
+     }).then(function(value) {
+         if (value) {
+             window.location.href = url;
+         }
+     });
+   });
+</script>
+
 
 @endpush
