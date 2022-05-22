@@ -1,6 +1,6 @@
 <html>
    <head>
-      <title></title>
+      <title>PDF</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <style type="text/css">
       </style>
@@ -34,19 +34,35 @@
         	<thead>
         		<tr>
         			<th>Category</th>
-        			<th>Books Collect</th>
         			<th>Created At</th>
         		</tr>
         	</thead>
         	<tbody>
-        		@foreach ($collections as $collect)
-        		<tr>
-        			<td>{{ $collect->title }}</td>
-        			<td>{{ $collect->books_count }}</td>
-        			<td>{{ $collect->created_at }}</td>
-        		</tr>
-        		@endforeach
+            <tr>
+              <td>{{ $collect->title }}</td>
+              <td>{{ $collect->created_at->toFormattedDateString() }}</td>
+            </tr>
         	</tbody>
         </table>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Body</th>
+              <th>Published At</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($collect->books as $book)
+            <tr>
+              <td>{{ $book->title }}</td>
+              <td>{{ $book->body }}</td>
+              <td>{{ $book->published->toFormattedDateString() }}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+
 </body>
 </html>

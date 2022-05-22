@@ -17,4 +17,14 @@ class PDFCollectionsController extends Controller
         
         return $pdf->stream(); 
     }
+
+    public function viewPDF(Category $collect)
+    {
+        $collect->load('books');
+        $pdf        = \PDF::loadView('pdf.collections', [
+            'collect'    => $collect,
+        ]);
+        $pdf->setPaper('legal','portrait'); 
+        return $pdf->stream(); 
+    }
 }

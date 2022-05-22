@@ -63,3 +63,4 @@ Route::get('/categories/{category}/remove', 'CategoriesController@remove');
  Route::get('/collections', 'CollectionsController@index');
  //PDF
  Route::get('/pdf-collections', 'PDFCollectionsController@index');
+ Route::get('/collections/{collect}/view-pdf', 'PDFCollectionsController@viewPDF');

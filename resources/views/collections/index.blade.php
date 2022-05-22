@@ -27,6 +27,7 @@
 									<td>{{ $collect->title }}</td>
 									<td>{{ $collect->books_count }}</td>
 									<td>{{ $collect->created_at }}</td>
+									<td><a href="/collections/{{ $collect->id }}/view-pdf" class="btn btn-primary btn-xs">View PDF</a></td>
 								</tr>
 								@endforeach
 							</tbody>

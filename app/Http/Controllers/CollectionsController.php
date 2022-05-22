@@ -12,4 +12,5 @@ class CollectionsController extends Controller
         $collections = Category::withCount('books')->get();
         return view('collections.index', compact('collections'));
     }
+
 }
