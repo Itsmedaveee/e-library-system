@@ -9,7 +9,10 @@
           <link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
      <title>LOGIN</title>
 </head>
-<body style="background:#BDC3C7;">
+<body style="background-image: url('./img/library.png'); background-repeat: no-repeat;   background-size: auto;   background-size: 100% 100%;
+
+;
+">
    @yield ('content')
 
 

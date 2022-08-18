@@ -87,9 +87,7 @@ info:before {
     box-sizing: content-box;
     margin: 20px auto;
 }
-
-     
-    </style>
+ </style>
 <body>
     
 
