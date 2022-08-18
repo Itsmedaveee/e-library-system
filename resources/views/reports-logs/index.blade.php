@@ -34,7 +34,7 @@
             				<td>{{ $report->book->category->title ?? null }}</td>
             				<td>{{ $report->book->title ?? null }}</td>
             				<td>{{ $report->status }}</td>
-            				<td>{{ $report->user->student->name }}</td>
+            				<td>{{ $report->user->student->name ?? null }}</td>
             				<td>{{ $report->created_at->toFormattedDateString() }}</td>
             			</tr>
             			@endforeach
