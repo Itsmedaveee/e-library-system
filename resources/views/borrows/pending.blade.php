@@ -27,8 +27,8 @@
 							<tr>
 								<td>{{ $inventory->id }}</td>
 								<td>{{ $inventory->book->title }}</td>
-								<td>{{ $inventory->user->student->name }}</td> 
-								<td>{{ $inventory->user->student->department->name  }}</td> 
+								<td>{{ $inventory->user->student->name ?? null }}</td> 
+								<td>{{ $inventory->user->student->department->name ?? null  }}</td> 
 								<td>
 									<a href="/book/{{ $inventory->id }}/manage" class="btn btn-primary btn-xs">Manage</a>
 								</td>

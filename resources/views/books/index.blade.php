@@ -136,7 +136,7 @@
 								@foreach ($books as $book)
 								<tr>
 									<td>{{ $book->id }}</td>
-									<td>{{ $book->category->title }}</td>
+									<td>{{ $book->category->title ?? null}}</td>
 									<td>{{ $book->title }}</td>
 									<td>
 										{{ $book->inventories_count }}
