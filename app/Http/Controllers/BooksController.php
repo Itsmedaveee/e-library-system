@@ -44,7 +44,7 @@ class BooksController extends Controller
   
         foreach ($request->serial_no as $serial) {
             $book->inventories()->create([ 
-                'serial_no' => $serial
+                'serial_no' => $serial,
             ]);
         }
     

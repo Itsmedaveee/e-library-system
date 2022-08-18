@@ -42,7 +42,7 @@
              </thead>
              <tbody>
                  <tr>
-                     <td>{{ $book->title }}</td>
+                     <td>{{ $book->title ?? null }}</td>
                      <td>{{ $book->author }}</td>
                      <td>{{ $book->inventories->count() }}</td>
                      <td>{{ $book->published->toFormattedDateString() }}</td>

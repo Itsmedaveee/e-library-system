@@ -47,7 +47,7 @@
                <span> Request Book</span>
             </a>
             <ul class="sub-menu">
-               <li class="{{ Request::is('request-books') ? 'active' : '' }} "><a href="/request-books"> Request Book</a></li>
+               <li class="{{ Request::is('request-books') ? 'active' : '' }} "><a href="/request-books"> Request lists</a></li>
              
               {{--  <li class="{{ Request::is('librarian-users') ? 'active' : '' }}"><a href="/librarian-users">Librarian users</a></li> --}}
             </ul>

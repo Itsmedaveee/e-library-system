@@ -44,7 +44,7 @@
                   <tbody> 
                     @forelse  ($books as $book) 
                      <tr>
-                        <td>{{ $book->category->title }}</td>
+                        <td>{{ $book->category->title ?? null }}</td>
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->inventories_count }}</td>

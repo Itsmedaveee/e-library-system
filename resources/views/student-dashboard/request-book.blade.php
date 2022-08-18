@@ -7,7 +7,7 @@
    <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Request Borrows</div>
+				<div class="panel-heading">Request lists</div>
 				<div class="panel-body">
 					<table class="table table-bordered" id="myTable">
 						<thead>
@@ -22,8 +22,8 @@
 							@foreach ($inventories as $inventory)
 							<tr>
 								<td>{{ $inventory->id }}</td>
-								<td>{{ $inventory->book->title }}</td> 
-								<td>{{ $inventory->book->author }}</td>  								
+								<td>{{ $inventory->book->title ?? null }}</td> 
+								<td>{{ $inventory->book->author ?? null }}</td>  								
 								<td>
 									<form method="POST" action="/request-books/{{ $inventory->id }}/cancel">
 										@csrf

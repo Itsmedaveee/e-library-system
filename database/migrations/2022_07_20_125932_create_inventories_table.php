@@ -15,10 +15,10 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->nullable();
-            $table->foreignId('book_id')->constrained('books');
+            $table->foreignId('user_id')->nullable();
+            $table->bigInteger('book_id')->constrained('books')->onDelete('cascade')->onUpdate('cascade');
             $table->string('serial_no')->unique();
-            $table->string('status')->deafult('Available');
+            $table->string('status')->default('Available');
             $table->timestamps();
         });
     }
