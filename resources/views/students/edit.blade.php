@@ -1,6 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
-
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="/students" class="">Students</a></li>
+      <li class="breadcrumb-item  active">Edit Student</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Edit Student <small></small></h1>
+   <div class="row">
 {{-- <div id="content" class="content">
 				<!-- begin breadcrumb -->
 				<ol class="breadcrumb float-xl-right">
@@ -24,9 +33,7 @@
 							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 						</div>
 					</div>
-					<div class="panel-body"> --}}
-			<div class="container">
-			<h2>Edit Student</h2>
+					<div class="panel-body"> --}} 
 			<div class="col-md-12">
 				<div class="panel panel-default">
 				<div class="panel-heading">Edit Student</div>

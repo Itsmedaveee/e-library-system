@@ -18,4 +18,8 @@ class Department extends Model
     {
         return $this->hasMany(Faculty::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

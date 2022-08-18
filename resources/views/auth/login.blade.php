@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-5 mx-auto">
                         <div class="card">
-                            <div class="card-body p-0 auth-header-box" style="background:#0B297F;">
+                            <div class="card-body p-0 auth-header-box" style="background:#000;">
                                 <div class="text-center p-3">
                                     <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Let's Get Started to Login</h4>   
                                 </div>
@@ -57,9 +57,16 @@
                                                 <div class="col-12">
                                                     <button type="submit" class="btn btn-primary btn-block waves-effect waves-light" type="button">Log In </button>
                                                 </div><!--end col--> 
-                                            </div> <!--end form-group-->                           
+                                            </div> <!--end form-group-->   
+                                            
                                         </form><!--end form-->
+
                                         <div class="m-3 text-center text-muted">
+                                            <div class="form-group mb-1 row">                        
+                                                   <div class="col-12">
+                                                    <a href="/registration-form">Register here</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="account-social">
                                         </div>
@@ -68,7 +75,7 @@
                                 </div>
                             </div><!--end card-body-->
                             <div class="card-body bg-light-alt text-center">
-                                <span class="text-muted d-none d-sm-inline-block">E-Library System </span>                                            
+                                <span class="text-muted d-none d-sm-inline-block">E-Library Management System </span>                                            
                             </div>
                         </div><!--end card-->
                     </div><!--end col-->

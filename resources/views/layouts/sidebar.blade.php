@@ -37,7 +37,24 @@
             </a>
          </li>
 
-            <li class="has-sub {{ Request::is('users') ? 'active' : '' }}   {{ Request::is('faculty-users') ? 'active' : '' }}  {{ Request::is('students') ? 'active' : '' }} 
+            <li class="has-sub {{ Request::is('users') ? 'active' : '' }}   {{ Request::is('faculty-users') ? 'active' : '' }}  
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+               {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
+               <i class="fa fa-user"></i>
+               </div>
+               <span>Users</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="{{ Request::is('users') ? 'active' : '' }} "><a href="/users">Administrator lists</a></li>
+               <li class="{{ Request::is('faculty-users') ? 'active' : '' }} "><a href="/faculty-users">Faculty lists</a></li>
+              {{--  <li class="{{ Request::is('librarian-users') ? 'active' : '' }}"><a href="/librarian-users">Librarian users</a></li> --}}
+            </ul>
+         </li>     
+
+         <li class="has-sub  {{ Request::is('students') ? 'active' : '' }}  {{ Request::is('pending-students') ? 'active' : '' }} 
             border-top: 1px solid #46505a;">
             <a href="javascript:;">
                <b class="caret"></b>
@@ -45,12 +62,11 @@
                {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
                <i class="fa fa-users"></i>
                </div>
-               <span>Users</span>
+               <span>Students</span>
             </a>
             <ul class="sub-menu">
-               <li class="{{ Request::is('users') ? 'active' : '' }} "><a href="/users">Administrator lists</a></li>
-               <li class="{{ Request::is('faculty-users') ? 'active' : '' }} "><a href="/faculty-users">Faculty lists</a></li>
-               <li class="{{ Request::is('students') ? 'active' : '' }} "><a href="/students">Student lists</a></li>
+               <li class="{{ Request::is('pending-students') ? 'active' : '' }} "><a href="/pending-students">Pending Student lists</a></li>
+               <li class="{{ Request::is('students') ? 'active' : '' }} "><a href="/students"> Student lists</a></li>
               {{--  <li class="{{ Request::is('librarian-users') ? 'active' : '' }}"><a href="/librarian-users">Librarian users</a></li> --}}
             </ul>
          </li>
@@ -69,6 +85,20 @@
                <li class="{{ Request::is('departments') ? 'active' : '' }}"><a href="/departments">Department lists</a></li>
             </ul>
          </li>
+  {{--         <li class="has-sub {{ Request::is('inventories') ? 'active' : '' }} 
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+                  <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" />
+               <i class="fa fa-building"></i>
+               </div>
+               <span>Inventories</span>
+            </a>
+            <ul class="sub-menu">
+              
+            </ul>
+         </li> --}}
 
 
           <li class="has-sub {{ Request::is('categories') ? 'active' : '' }} 
@@ -88,7 +118,7 @@
 
 
 
-          <li class="has-sub {{ Request::is('books') ? 'active' : '' }} 
+          <li class="has-sub {{ Request::is('books') ? 'active' : '' }} {{ Request::is('add-book') ? 'active' : '' }} 
             border-top: 1px solid #46505a;">
             <a href="javascript:;">
                <b class="caret"></b>
@@ -99,10 +129,11 @@
                <span>Books</span>
             </a>
             <ul class="sub-menu">
-               <li class="{{ Request::is('books') ? 'active' : '' }}"><a href="/books">Books</a></li>
+               <li class="{{ Request::is('books') ? 'active' : '' }}"><a href="/books">Book lists</a></li>
             </ul>
-         </li>
-          <li class="has-sub {{ Request::is('collections') ? 'active' : '' }} 
+         </li>          
+
+         <li class="has-sub {{ Request::is('pending-borrows') ? 'active' : '' }} {{ Request::is('borrows') ? 'active' : '' }} 
             border-top: 1px solid #46505a;">
             <a href="javascript:;">
                <b class="caret"></b>
@@ -110,13 +141,31 @@
                {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
                <i class="fa fa-list"></i>
                </div>
-               <span>Collections</span>
+               <span>Borrows</span>
             </a>
-            <ul class="sub-menu">
-               <li class="{{ Request::is('collections') ? 'active' : '' }}"><a href="/collections">Collections</a></li>
+            <ul class="sub-menu"> 
+               <li class="{{ Request::is('pending-borrows') ? 'active' : '' }}"><a href="/pending-borrows">Request Borrows</a></li>
+               <li class="{{ Request::is('borrows') ? 'active' : '' }}"><a href="/borrows"> Borrow lists</a></li>
             </ul>
          </li>
-        
+
+     <li class="has-sub {{ Request::is('reports') ? 'active' : '' }}
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+               {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
+               <i class="fa fa-file-text" aria-hidden="true"></i>
+
+               </div>
+               <span>Reports</span>
+            </a>
+            <ul class="sub-menu"> 
+               <li class="{{ Request::is('reports') ? 'active' : '' }}"><a href="/reports"> Reports</a></li>
+              
+            </ul>
+         </li>
+   
          <!-- begin sidebar minify button -->
          <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-back"></i> <span>Collapse</span></a></li>
          <!-- end sidebar minify button -->

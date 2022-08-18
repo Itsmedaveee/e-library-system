@@ -1,8 +1,15 @@
-@extends('layouts.app')
-@section('content') 
-<!-- end page-header --> 
-   <div class="container">
-         <h2>Settings</h2>
+@extends('layouts.master')
+@section('content')  
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="javascript:;" class="">Home</a></li>
+      <li class="breadcrumb-item  active">Settings</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Settings <small></small></h1>
+   <div class="row">
          <div class="col-md-12">
             <div class="panel panel-default">
             <div class="panel-heading">Settings</div>
@@ -11,7 +18,28 @@
                      @csrf
                      {{ method_field('PATCH') }}
 
-                @if (auth()->user()->isAdmin())
+
+             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" hidden>
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
+                        <span class="help-block ">                           
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong style="color:red;">{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+                     </div>   
+                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" hidden>
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email" value="{{ auth()->user()->email }}">
+                        <span class="help-block ">                           
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong style="color:red;">{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                     </div> 
+ 
                   <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label>Name</label>
                         <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
@@ -42,8 +70,7 @@
                                 <strong style="color:red;">{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
-                     </div>
-                    @endif
+                     </div> 
                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <label>  Password</label>
                         <input type="password" class="form-control" name="password">

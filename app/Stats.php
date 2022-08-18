@@ -16,5 +16,10 @@ class Stats extends Model
 	public function totalBooks()
 	{
 		return Book::count(); 
+	} 	
+
+	public function totalDepartments()
+	{
+		return Department::count(); 
 	} 
 }

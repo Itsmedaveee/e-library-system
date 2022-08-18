@@ -1,9 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
-
-
-<div class="container">
-			<h2>Student Show</h2>
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="/students" class="">Students</a></li>
+      <li class="breadcrumb-item  active">Students Show</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Student Show <small></small></h1>
+   <div class="row">
+ 
 			<div class="col-md-12">
 				<div class="panel panel-default">
 				<div class="panel-heading">Student Show</div>

@@ -1,8 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="javascript:;" class="">Home</a></li>
+      <li class="breadcrumb-item  active"></li>
+   </ol>
 
-         <div class="container">
-         <h2>Categories</h2>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Books <small></small></h1>
+   <div class="row">
          <div class="col-md-12">
             <div class="panel panel-default">
             <div class="panel-heading">Category</div>
@@ -38,26 +46,32 @@
             </form>
          </div>
       </div> 
+
+ <div class="panel panel-default">
+            <div class="panel-heading">Category</div>
+            <div class="panel-body">
+
 @forelse  ($category->books as $book)
+
   <div class="well">
       <div class="media">
          <a class="pull-left" href="#"> 
+             <div class="form-group">
+               <input type="checkbox" name="">
+            </div>
          <img class="media-object" src="{{ Storage::url($book->upload_photo) }}" style="width: 150px; height: 150px; ">
+
       </a>
       <div class="media-body">
+
          <h1 class="media-heading">{{ $book->title }}</h1>
           <p class="text-right"></p>
-          <p>   {{ $book->body }}</p>
+          <p>  Body: {{ $book->body }}</p>
+          <p>   Stocks :{{ $book->inventories->count() }}</p>
           <ul class="list-inline list-unstyled">
-         <li><span><i class="glyphicon glyphicon-calendar"></i> {{ $book->created_at->toFormattedDateString() }}</span></li>
-            
-            <li>|</li>
-            <li>Author: {{ $book->author }}</li>
-            <li>|</li>
-             <li><a href="{{ Storage::url($book->upload_file) }}">View PDF</a></li>
-            <li>
-             <a href="/books/{{ $book->id }}/download" class="btn btn-primary"><i class="fa fa-download"></i> Download PDF</a>
-            </li>
+         <li><span><i class="glyphicon glyphicon-calendar"></i> Published: {{ $book->published->toFormattedDateString() }}</span></li> 
+            <li>Author: {{ $book->author }}</li> 
+           
             
          </ul>
        </div>
@@ -67,6 +81,9 @@
    @empty
          <p>No Search found</p>
        @endforelse
+       <div class="form-group">
+       <button type="submit" class="btn btn-primary">Reserve</button>
+      </div>
 </div>
 @endsection
 

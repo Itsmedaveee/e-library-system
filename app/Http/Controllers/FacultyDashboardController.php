@@ -13,18 +13,19 @@ class FacultyDashboardController extends Controller
         return view('faculty-dashboard.index', compact('categories'));
     }
 
-    public function show(Category $category, Request $request)
+    public function show(Book $book, Request $request)
     {
          //Get the search value from the request
         $search = $request->input('search');
-        $category->load(['books' => function ($q) use ($search) {
+        $book->load(['books.inventories','books' => function ($q) use ($search) {
             $q->where('title', 'LIKE', "%{$search}%")
                     ->orWhere('body', 'LIKE', "%{$search}%")
                     ->latest()
                     ->get(); 
-        }]); 
+        }]);  
 
-        return view('faculty-dashboard.books.show', compact('category'));
+
+        return view('faculty-dashboard.books.show', compact('book'));
     }
 
 }

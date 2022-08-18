@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('year_level');
             $table->string('section');
+            $table->string('status');
             $table->timestamps();
         });
     }

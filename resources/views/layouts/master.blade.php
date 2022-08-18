@@ -13,7 +13,7 @@
 {{--     <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet" /> --}}
 {{--     <link href="{{ asset('css/vendor.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/red.min.css') }}" rel="stylesheet" /> --}}
-  {{--   <link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/switchery.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet" />
@@ -22,14 +22,74 @@
     <link href="{{ asset('css/bootstrap-datepicker3.css') }}" rel="stylesheet" />
     <script src="{{ asset('css/sweetalert2/sweetalert2.min.js') }}"></script>
     <link href="{{ asset('css/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/jquery.gritter.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/jquery.gritter.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.tagit.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/datatable/DataTables-1.10.18/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" >
      
 </head>
 
-<style>
-    
-</style>
+  <style type="text/css">
+      
+      .h-30px {
+
+        height: 30px!important;
+      }
+      .rounded {
+        border-radius: 4px!important;
+      }
+  </style>
+   <style>
+ .swal-icon--warning {
+    border-color: #f59c1a;
+}
+.swal-icon--warning__body, .swal-icon--warning__dot {
+    position: absolute;
+    left: 50%;
+    background-color: #f8bb86;
+}
+.swal-icon--warning__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: -4px;
+    bottom: -11px;
+}
+.swal-icon--warning__body {
+    width: 5px;
+    height: 47px;
+    top: 10px;
+    border-radius: 2px;
+    margin-left: -2px;
+}
+.swal-icon--warning:after {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: -3px;
+    top: 19px;
+}
+
+info:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    background-color: #c9dae1;
+}
+
+.swal-icon {
+    width: 80px;
+    height: 80px;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+    padding: 0;
+    position: relative;
+    box-sizing: content-box;
+    margin: 20px auto;
+}
+
+     
+    </style>
 <body>
     
 
@@ -60,20 +120,15 @@
     <script src="{{ asset('/js/apple.min.js') }}"></script>
     <script src="{{ asset('/js/theme/default.min.js') }}"></script>
     <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('/js/toastr.min.js') }}"></script>
-{{--     <script src="{{ asset('/js/select2.min.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('/js/switchery.min.js') }}"></script>
-    <script src="{{ asset('/js/particles.js') }}"></script>
-    <script src="{{ asset('/js/stats.js') }}"></script>
-    <script src="{{ asset('/js/app-js.js') }}"></script>
-    <script src="{{ asset('/js/moment.js') }}"></script>
-    <script src="{{ asset('/js/jquery.gritter.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script> --}}
+    <script src="{{ asset('/js/toastr.min.js') }}"></script> 
+    <script src="{{ asset('/js/select2.min.js') }}"></script> 
+    <script src="{{ asset('/js/tag-it.min.js') }}"></script> 
+    <script src="{{ asset('/js/jquery-migrate.min.js') }}"></script> 
     @stack ('scripts')
 
        <script src="{{ asset('assets/plugins/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
+
 
     <script>
    

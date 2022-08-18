@@ -14,9 +14,18 @@ class StudentsController extends Controller
 {
     public function index()
     {
-        $students = Student::with('department')->get();
+        $students = Student::where('status', 1)->with('department', 'user')->get();
+     
         $departments = Department::pluck('name', 'id');
         return view('students.index', compact('students', 'departments'));
+    }
+
+    public function pending()
+    {
+        $students = Student::where('status', 0)->with('department', 'user')->get();
+     
+        $departments = Department::pluck('name', 'id');
+        return view('students.pending-students', compact('students', 'departments'));
     }
 
     public function store(Request $request)
@@ -38,20 +47,22 @@ class StudentsController extends Controller
             'section' => request('section'),
             'email' => request('email'),
             'year_level' => request('year_level'),
+             'status'    => 0    
         ]);
 
         $role = Role::where('name', 'Student')->first();
-        $user = User::create([
-            'username'  => request('id_number'),
+        $user = User::create([ 
+            'student_id'    => $student->id,
             'name'  => request('name'),
             'email'  => $student->email,
             'username'  => request('username'),
             'password'  => bcrypt(request('password')),
-            'status'    => 1
+            'status'    => 0    
         ]);
 
         $student->user()->associate($user)->save();
         $student->department()->associate($department)->save();
+        $user->department()->associate($department)->save();
         $user->role()->associate($role)->save();
        // Mail::to($student)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
@@ -134,6 +145,27 @@ class StudentsController extends Controller
     public function manage(Student $student)
     {
         return view('students.manage', compact('student'));
+    }
+
+    public function approved(Student $student)
+    {
+        $student->update([
+            'status'    => 1
+        ]); 
+
+        $student->user()->update([
+            'status'  => 1
+        ]); 
+
+        return redirect('/pending-students')->with('info', 'Student has been approved');
+    }
+
+    public function declined(Student $student)
+    {
+        $student->delete();
+        $student->user()->delete(); 
+
+        return redirect('/students')->with('error', 'Student has been declined');
     }
 
 }

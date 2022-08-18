@@ -5,11 +5,51 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Book;
+use App\Inventory;
 class StudentsDashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
-        return view('student-dashboard.index', compact('categories'));
+        $search = $request->input('search'); 
+        $books = Book::with('inventories')->withCount(['inventories' => function ($query) {
+                    $query->where('status', 'Available');
+        }])->where('title', 'LIKE', "%{$search}%")
+                      ->orWhere('author', 'LIKE', "%{$search}%")
+                      ->latest()
+                      ->get(); 
+        return view('student-dashboard.index', compact('books'));
+    }
+
+    public function show(Book $book)
+    {
+        $book->load(['inventories'  => function ($q) {
+            $q->where('status', 'Available')->orWhere('status', 'Return');
+        }]);
+
+        return view('student-dashboard.show', compact('book'));
+    }
+
+    public function pendingRequest()
+    {
+        $inventories = Inventory::where('status', 'Reserved')->get();
+
+       return view('student-dashboard.request-book', compact('inventories'));
+    }
+
+    public function cancel(Inventory $inventory)
+    {
+        $book = Book::first();
+
+        $inventory->update([
+            'status'    => 'Available',
+        ]);
+
+       $reportLog = \App\ReportLog::create([
+                'user_id'  => auth()->id(), 
+                'book_id'   => $book->id,
+                'status'  => 'Cancel',
+           ]);
+
+       return back()->with('error', 'Book has been cancel');
     }
 }

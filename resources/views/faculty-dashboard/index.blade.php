@@ -1,7 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content') 
-   <div class="container">
-         <h2>Library</h2>
+   <div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="javascript:;" class="">Home</a></li>
+      <li class="breadcrumb-item  active">Library</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Library <small></small></h1>
+
          <div class="col-md-12">
             <div class="panel panel-default">
             <div class="panel-heading">Library</div>
@@ -16,7 +24,7 @@
                </div>
             </form> --}}
 
-            <table class="table table-bordered table-hover" id="myTable">
+          {{--   <table class="table table-bordered table-hover" id="myTable">
                <thead>
                   <tr>
                      <th>ID</th>
@@ -33,7 +41,7 @@
                   </tr>
                   @endforeach
                </tbody>
-            </table>
+            </table> --}}
          </div>
       </div>
    </div>

@@ -13,6 +13,7 @@ class Student extends Model
         'email',
         'year_level',
         'section',
+        'status',
         'user_id'
     ];
 

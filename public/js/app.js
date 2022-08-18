@@ -26642,8 +26642,6 @@ var render = function() {
                           }
                         },
                         [
-                          _c("option", [_vm._v("RSL")]),
-                          _vm._v(" "),
                           _c("option", [_vm._v("FILING FEE")]),
                           _vm._v(" "),
                           _c("option", [_vm._v("DST")]),
@@ -26668,8 +26666,6 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", [_vm._v("AUTHORIZATION FEE")]),
                           _vm._v(" "),
-                          _c("option", [_vm._v("LIC")]),
-                          _vm._v(" "),
                           _c("option", [_vm._v("CP")]),
                           _vm._v(" "),
                           _c("option", [_vm._v("PUR")]),
@@ -26680,9 +26676,11 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", [_vm._v("MOD")]),
                           _vm._v(" "),
-                          _c("option", [_vm._v("STO")]),
+                          _c("option", [_vm._v("DEMO")]),
                           _vm._v(" "),
-                          _c("option", [_vm._v("DEMO")])
+                          _c("option", [_vm._v("ADMIN FEE")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("LICENSE FEE")])
                         ]
                       )
                     ])

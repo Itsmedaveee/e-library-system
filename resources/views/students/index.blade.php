@@ -1,28 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
-
-{{-- <div id="content" class="content"> 
-				<ol class="breadcrumb float-xl-right">
-					<li class="breadcrumb-item"><a href="/home">Home</a></li>
-					<li class="breadcrumb-item"><a href="/students">Students</a></li>
-				</ol> 
-				<h1 class="page-header">Student lists </h1>
-			 
-				<div class="row">
-				<div class="col-md-4">
-				<div class="panel panel-inverse">
-					<div class="panel-heading">
-						<h4 class="panel-title">Add Student </h4>
-						<div class="panel-heading-btn">
-							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-							<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-						</div>
-					</div> --}}
-	 <div class="container">
-			<h2>Students</h2>
-			<div class="col-md-12">
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="/home" class="">Home</a></li>
+      <li class="breadcrumb-item  active">Students</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Students <small></small></h1>
+   <div class="row">
+ 
+	{{-- 		<div class="col-md-12">
 				<div class="panel panel-default">
 				<div class="panel-heading">Add Student</div>
 				<div class="panel-body"> 
@@ -125,11 +114,7 @@
 								    </span>
 								@endif
 							</div>			
-							</div>	
-						{{-- 	<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" name="username">
-							</div>	 --}}	
+							</div>	 
 								<div class="col-md-4">	
 							<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 								<label>Email</label>
@@ -166,12 +151,7 @@
 								    </span>
 								@endif
 							</div>
-							</div>
-
-						{{-- 	<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" name="password">
-							</div> --}}
+					 
 								<div class="col-md-4">
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Submit</button>
@@ -180,7 +160,7 @@
 						</form>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
 			<div class="col-md-12">
 				<div class="panel panel-default">
@@ -197,19 +177,19 @@
 							</thead>
 							<tbody>
 								@foreach ($students as $student)
-								<tr>
+								<tr> 
 									<td>{{ $student->id_number }}</td>
 									<td>{{ $student->name }}</td>
-									<td><a href="/students/{{ $student->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
+									<td>
 										<a href="/students/{{ $student->id }}" class="btn btn-info btn-xs">Show</a>
 						{{-- 				<form method="POST" action="/students/{{ $student->id }}" style="display:inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Remove</button>
 										</form> --}}
-											 <a href="/students/{{ $student->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
-
-										<a href="/students/{{ $student->id }}/manage" class="btn btn-primary btn-xs"> Manage</a>
+									{{-- 		 <a href="/students/{{ $student->id }}/remove" class="btn btn-danger btn btn-xs button delete-confirm">  Delete</a> --}}
+{{-- 
+										<a href="/students/{{ $student->id }}/manage" class="btn btn-primary btn-xs"> Manage</a> --}}
 
 									</td> 
 								</tr>

@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'role_id', 'username', 'faculty_id',
-        'department_id', 'status'
+        'department_id', 'status', 'student_id'
     ];
 
     /**
@@ -38,6 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function role() 
     {
         return $this->belongsTo(Role::class);
@@ -45,6 +46,10 @@ class User extends Authenticatable
     public function department() 
     {
         return $this->belongsTo(Department::class);
+    }
+    public function student() 
+    {
+        return $this->belongsTo(Student::class);
     }
 
     public function faculty()
@@ -71,6 +76,16 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         return in_array($this->role->name, $role);
+    }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
     }
 
 }

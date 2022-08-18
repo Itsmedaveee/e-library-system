@@ -27,6 +27,7 @@ class UsersController extends Controller
             'username'  => request('username'),
             'email'  => request('email'),
             'password'  => bcrypt(request('password')),
+            'status'  => 1
         ]);
        $user->role()->associate($role)->save();
 
@@ -56,7 +57,8 @@ class UsersController extends Controller
         $user->update([
             'name'         => request('name'),
             'username'         => request('username'),
-            'email'     => request('email')
+            'email'     => request('email'),
+            'status'  => 1
         ]);
 
         $user->role()->associate($role)->save();

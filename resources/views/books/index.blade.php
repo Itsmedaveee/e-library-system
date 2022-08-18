@@ -1,7 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
-<div class="container">
-			<h2> Books</h2>
+<div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="/home" class="">Home</a></li>
+      <li class="breadcrumb-item  active">Books</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Books <small></small></h1>
+ 
+	<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
 				<div class="panel-heading">Add Book</div>
@@ -24,6 +33,18 @@
 								@endif
 							</div>
 
+						<div class="form-group{{ $errors->has('serial_no') ? ' has-error' : '' }}">
+							<label>Serial No</label>
+							<select class="multiple-select2 form-control" multiple name="serial_no[]" >
+							</select>
+							<span class="help-block	">	                          
+								@if ($errors->has('serial_no'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('serial_no') }}</strong>
+								    </span>
+								@endif
+						</div>
+
 							<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
 								<label>Title</label>
 								<input type="text" class="form-control" name="title">
@@ -34,22 +55,7 @@
 								    </span>
 								@endif
 							</div>
-
-						{{-- 	<div class="form-group">
-								<label>Body</label>
-								<textarea class="form-control"></textarea>
-							</div> --}}
-							<div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-								<label>Body</label>
-		                        <textarea class="form-control" name="body"></textarea>
-		                       {{--  <trix-editor input="x" placeholder="Body"></trix-editor> --}}
-		                       <span class="help-block	">	                          
-								@if ($errors->has('body'))
-								    <span class="help-block">
-								        <strong style="color:red;">{{ $errors->first('body') }}</strong>
-								    </span>
-								@endif
-		                    </div>
+ 
 
 		                    <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
 								<label>Author</label>
@@ -62,7 +68,7 @@
 								@endif
 							</div>
 
-							<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
+						{{-- 	<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
 								<label>Upload Photo</label>
 								<input type="file" name="upload_photo" class="form-control">
 								 <span class="help-block">	                          
@@ -71,8 +77,8 @@
 								        <strong style="color:red;">{{ $errors->first('upload_photo') }}</strong>
 								    </span>
 								@endif
-							</div>							
-							<div class="form-group{{ $errors->has('upload_file') ? ' has-error' : '' }}">
+							</div>			 --}}				
+						{{-- 	<div class="form-group{{ $errors->has('upload_file') ? ' has-error' : '' }}">
 								<label>Upload PDF</label>
 								<input type="file" name="upload_file" class="form-control">
 								 <span class="help-block">	                          
@@ -81,11 +87,18 @@
 								        <strong style="color:red;">{{ $errors->first('upload_file') }}</strong>
 								    </span>
 								@endif
-							</div>
-							<div class="form-group">
+							</div> --}}
+							<div class="form-group{{ $errors->has('published') ? ' has-error' : '' }}">
 								<label>Date Published</label>
 								<input type="date" name="published" class="form-control">
-							</div>
+								 <span class="help-block">	                          
+								@if ($errors->has('published'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('published') }}</strong>
+								    </span>
+								@endif
+							</div>	
+							
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
@@ -114,8 +127,9 @@
 							<thead>
 								<th>ID</th>
 								<th>Category</th>
-								<th>Title</th>
-								<th>Author</th>
+								<th>Title</th> 
+								<th>Stocks</th>
+								<th>Status</th>
 								<th>Actions</th>
 							</thead>
 							<tbody>
@@ -124,7 +138,17 @@
 									<td>{{ $book->id }}</td>
 									<td>{{ $book->category->title }}</td>
 									<td>{{ $book->title }}</td>
-									<td>{{ $book->author }}</td>
+									<td>
+										{{ $book->inventories_count }}
+									</td>
+									<td>
+										@if ($book->inventories_count > 0)
+											Available
+										@else 
+											No Available
+										@endif
+									</td>
+
 									<td><a href="/books/{{ $book->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
 										<a href="/books/{{ $book->id }}" class="btn btn-warning btn-xs">View</a>
 									{{-- 	<form method="POST" action="/books/{{ $book->id }}" style="display:inline-block;">
@@ -132,7 +156,7 @@
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Delete</button>
 										</form> --}}
-										<a href="/books/{{ $book->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
+										<a href="/books/{{ $book->id }}/remove" class="btn btn-danger btn btn-xs button delete-confirm">  Delete</a>
 									</td>
 								</tr>
 								@endforeach
@@ -146,6 +170,7 @@
 
 @endsection
 @push ('scripts')
+
 <link href="{{ asset('assets/trix-master/dist/trix.css') }}" rel="stylesheet"> 
 <script src="{{ asset('assets/trix-master/dist/trix.js') }}"></script>
  
@@ -155,6 +180,11 @@
    });
 </script>
  
+<script>
+ 
+  $(".multiple-select2").select2({ tags: true });
+</script>
+
  <script>
    $('.delete-confirm').on('click', function (event) {
      event.preventDefault();

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->integer('role_id')->default(0);
             $table->integer('faculty_id')->default(0);
+            $table->integer('student_id')->default(0);
             $table->integer('department_id')->default(0);
             $table->string('name');
             $table->string('username');

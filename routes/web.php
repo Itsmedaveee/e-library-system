@@ -6,18 +6,11 @@ Route::get('/', function () {
     return view('auth.login');
 });     
 
-// Route::get('/test/{book}', function ($book) {
-//       // file path
-//      $path = public_path('storage/avatar' . '/' . $book->upload_file);
-//       // header
-//      $header = [
-//        'Content-Type' => 'application/pdf',
-//        'Content-Disposition' => 'inline; filename="' . $book . '"'
-//      ];
-//     return response()->file($path, $header);
-// })->name('pdf');
+ 
 
-Route::get('/settings', 'SettingsController@index');   
+Route::get('/registration-form', 'RegistrationsController@index'); 
+
+Route::get('/settings', 'SettingsController@index');    
 Route::patch('/settings', 'SettingsController@update');   
 Auth::routes();
 
@@ -27,6 +20,8 @@ Route::resource('/users', 'UsersController');
 //Categories Resource
 Route::resource('/categories', 'CategoriesController');  
 Route::get('/categories/{category}/remove', 'CategoriesController@remove');  
+
+Route::get('/add-book', 'InventoriesController@index'); 
 
 //Books Resource
  Route::resource('/books', 'BooksController');
@@ -47,20 +42,47 @@ Route::get('/categories/{category}/remove', 'CategoriesController@remove');
  //Students
  Route::resource('/students', 'StudentsController');
  Route::get('/students/{student}/remove', 'StudentsController@remove');
+ Route::get('/pending-students', 'StudentsController@pending');
  Route::patch('/activate-user/{user}', 'StudentsController@activate');
  Route::patch('/deactivate-user/{user}', 'StudentsController@deactivate');
  Route::get('/students/{student}/manage', 'StudentsController@manage');
+ Route::patch('/student/manage/{student}/approved', 'StudentsController@approved');
+ Route::delete('/student/manage/{student}/declined', 'StudentsController@declined');
 
 //Faculty Dashboard
  Route::get('/faculty/home', 'FacultyDashboardController@index'); 
- Route::get('/categories/{category}/show', 'FacultyDashboardController@show'); 
+ //Route::get('/books/{book}/show', 'FacultyDashboardController@show'); 
 
  //Student Dashboard
 
- Route::get('/student/home', 'StudentsDashboardController@index');
+ Route::get('/student/home', 'StudentsDashboardController@index'); 
+ Route::get('/books/{book}/view', 'StudentsDashboardController@show'); 
+ Route::get('/request-books', 'StudentsDashboardController@pendingRequest'); 
+ Route::patch('/request-books/{inventory}/cancel', 'StudentsDashboardController@cancel'); 
 
  //Collections
  Route::get('/collections', 'CollectionsController@index');
  //PDF
  Route::get('/pdf-collections', 'PDFCollectionsController@index');
  Route::get('/collections/{collect}/view-pdf', 'PDFCollectionsController@viewPDF');
+
+
+ //Borrow
+ Route::patch('/borrow/{book}', 'BorrowController@update');
+
+ //Pending Borrows
+ Route::get('/pending-borrows', 'PendingBorrowsController@pending');
+ Route::get('/book/{inventory}/manage', 'PendingBorrowsController@manage');
+ Route::patch('/request-borrow/{inventory}', 'PendingBorrowsController@approved');
+ Route::patch('/request-borrow/{inventory}/cancel', 'PendingBorrowsController@cancel');
+
+ //Borrows Book
+ Route::get('/borrows', 'BorrowController@index');
+ Route::get('/book-borrow/{inventory}/manage', 'BorrowController@manage');
+
+ //Return Book Update
+ Route::patch('/return-borrow-book/{inventory}', 'ReturnBooksController@return');
+
+ //Reports logs
+
+ Route::get('/reports', 'ReportLogsController@index');

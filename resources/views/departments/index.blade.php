@@ -1,14 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
-
-{{-- 	<div class="container">
-			<h2>Users</h2>
-			<div class="col-md-4">
-				<div class="panel panel-default">
-				<div class="panel-heading">Panel Heading</div>
-				<div class="panel-body"> --}}
-	<div class="container">
-			<h2>Departments</h2>
+ <div id="content" class="content">
+   <!-- begin breadcrumb -->
+   <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="/home" class="">Home</a></li>
+      <li class="breadcrumb-item  active">Departments</li>
+   </ol>
+   <!-- end breadcrumb -->
+   <!-- begin page-header -->
+   <h1 class="page-header">Departments <small></small></h1>
+   	<div class="row">
+	 
 			<div class="col-md-4">
 				<div class="panel panel-default">
 				<div class="panel-heading">Add Department</div>
@@ -59,7 +61,7 @@
 											<button type="submit" class="btn btn-danger btn-xs">Delete </button>
 										</form> --}}
 
-										 <a href="/departments/{{ $department->id }}/remove" class="btn btn-danger btn btn-xs m-b-10 button delete-confirm">  Delete</a>
+										 <a href="/departments/{{ $department->id }}/remove" class="btn btn-danger btn btn-xs button delete-confirm">  Delete</a>
 
 									</td>
 								</tr>
