@@ -60,7 +60,7 @@
 								</div>
 
 							<div class="form-group{{ $errors->has('person_published') ? ' has-error' : '' }}">
-								<label>Published</label>
+								<label>Publisher</label>
 								<input type="text" class="form-control" name="person_published" value="{{ $book->person_published }}">
 								 <span class="help-block">	                          
 								@if ($errors->has('person_published'))
@@ -90,7 +90,7 @@
 							</div> --}}
 							<div class="form-group">
 								<label>Date Published</label>
-								<input type="date" name="published" class="form-control" value="{{ $book->published }}">
+								<input type="date" name="published" class="form-control"  value="{{ \Carbon\Carbon::parse($book->published)->format('yyyy-MM-ddThh:mm')}}">
 							</div> 
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>

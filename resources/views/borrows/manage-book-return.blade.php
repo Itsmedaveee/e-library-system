@@ -47,6 +47,10 @@
 				<form method="POST" action="/return-borrow-book/{{ $inventory->id }}" >
 						@csrf
 					{{ method_field('PATCH') }}
+					<div class="form-group">
+							<label>Date Duration</label>
+								<input type="date" name="date_duration" class="form-control">
+							</div>
 						<div class="form-group">
 							<label>Type</label>
 							<select class="form-control" name="status">
@@ -54,7 +58,7 @@
 								<option value="Overdue">Overdue</option>
 								<option value="Damaged Book">Damaged Book</option>
 								<option value="Lost Book">Lost Book</option> 
-								<option value="Time">Extend</option>
+								<option value="Extend">Extend</option>
 								<option value="Return Book">Return</option>
 							</select>
 						</div>

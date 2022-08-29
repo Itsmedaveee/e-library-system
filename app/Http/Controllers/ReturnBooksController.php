@@ -12,7 +12,7 @@ class ReturnBooksController extends Controller
     {
         $inventory->update([
             'status'    => request('status'),
-            'time_duration'    => Carbon::parse(request('time_duration'))
+            'date_duration'    => Carbon::parse(request('date_duration'))
         ]);
 
          $reportLog = ReportLog::create([

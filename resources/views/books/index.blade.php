@@ -90,7 +90,7 @@
 								@endif
 							</div>           
 							<div class="form-group{{ $errors->has('person_published') ? ' has-error' : '' }}">
-								<label>Published</label>
+								<label>Publisher</label>
 								<input type="text" class="form-control" name="person_published">
 								 <span class="help-block">	                          
 								@if ($errors->has('person_published'))

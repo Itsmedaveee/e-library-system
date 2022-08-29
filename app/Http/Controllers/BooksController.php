@@ -71,6 +71,7 @@ class BooksController extends Controller
             'title' => 'required',
             'author' => 'required',
             'body' => 'required',
+            'upload_photo' => 'required',
             'person_published' => 'required',
        ]);  
  
