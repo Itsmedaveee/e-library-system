@@ -85,6 +85,22 @@
                <li class="{{ Request::is('departments') ? 'active' : '' }}"><a href="/departments">Department lists</a></li>
             </ul>
          </li>
+
+
+          <li class="has-sub {{ Request::is('courses') ? 'active' : '' }} 
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+               {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
+               <i class="fa fa-list"></i>
+               </div>
+               <span>Courses</span>
+            </a>
+            <ul class="sub-menu">
+               <li class="{{ Request::is('courses') ? 'active' : '' }}"><a href="/courses">Course lists</a></li>
+            </ul>
+         </li>          
   {{--         <li class="has-sub {{ Request::is('inventories') ? 'active' : '' }} 
             border-top: 1px solid #46505a;">
             <a href="javascript:;">

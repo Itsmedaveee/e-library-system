@@ -19,6 +19,7 @@ class CreateInventoriesTable extends Migration
             $table->bigInteger('book_id')->constrained('books')->onDelete('cascade')->onUpdate('cascade');
             $table->string('serial_no')->unique();
             $table->string('status')->default('Available');
+            $table->date('date_duration')->nullable(); 
             $table->timestamps();
         });
     }

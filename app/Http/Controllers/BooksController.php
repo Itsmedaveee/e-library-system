@@ -25,21 +25,25 @@ class BooksController extends Controller
             'published' => 'required',
             'serial_no' => 'required',
             'category' => 'required',
+            'person_published' => 'required',
          
        ]);  
-       // $image = $request->upload_photo;
-       //  if (request()->hasFile('upload_photo')) {
-       //      $file      = $request->file('upload_photo');
-       //      $extension = $file->extension();
-       //      $filename  = time() . '-' . str_slug($image) . '.' . $extension;
-       //      $uploadImage      = $file->storeAs('public/avatar',$filename);
-       //  }
+       $image = $request->upload_photo;
+        if (request()->hasFile('upload_photo')) {
+            $file      = $request->file('upload_photo');
+            $extension = $file->extension();
+            $filename  = time() . '-' . str_slug($image) . '.' . $extension;
+            $uploadImage      = $file->storeAs('public/avatar',$filename);
+        }
  
         $category = Category::find(request('category'));
         $book = Book::create([
             'title' => request('title'),
             'author'  => request('author'), 
-            'published' =>  request('published')
+            'body'  => request('body'), 
+            'published' =>  request('published'),
+            'person_published' =>  request('person_published'),
+            'upload_photo' =>  $uploadImage,
         ]);
   
         foreach ($request->serial_no as $serial) {
@@ -66,14 +70,28 @@ class BooksController extends Controller
          $this->validate(request(), [
             'title' => 'required',
             'author' => 'required',
+            'body' => 'required',
+            'person_published' => 'required',
        ]);  
  
   
         $category = Category::find(request('category')); 
+
+        $image = $request->upload_photo;
+        if (request()->hasFile('upload_photo')) {
+            $file      = $request->file('upload_photo');
+            $extension = $file->extension();
+            $filename  = time() . '-' . str_slug($image) . '.' . $extension;
+            $uploadImage      = $file->storeAs('public/avatar',$filename);
+        }
+  
         $book->update([
             'title' => request('title'),
             'author'  => request('author'),
+            'body'  => request('body'),
             'published'  => request('published'), 
+            'person_published'  => request('person_published'), 
+            'upload_photo'  => $uploadImage, 
         ]);
  
         
@@ -99,5 +117,30 @@ class BooksController extends Controller
         $path = storage_path('app/'.$book->upload_file);
 
         return response()->download($path);
+    }
+
+    public function manage(Book $book)
+    {
+        $book->load('inventories');
+        return view('books.manage', compact('book'));
+    }
+
+    public function storeSerial(Request $request, Book $book)
+    {
+        $this->validate(request(), [
+            'serial_no' => 'required'
+        ]);
+         foreach ($request->serial_no as $serial) {
+            $book->inventories()->create([ 
+                'serial_no' => $serial,
+            ]);
+        } 
+        return back()->with('success', 'Serial no. has been added!');
+    }
+
+    public function deleteInventory(Inventory $inventory)
+    {
+        $inventory->delete(); 
+        return back()->with('error', 'Serial No has been remove!');
     }
 }

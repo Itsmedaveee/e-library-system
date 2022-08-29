@@ -10,8 +10,11 @@ class Inventory extends Model
         'book_id',
         'user_id',
         'status',
+        'date_duration',
         'serial_no'
     ];
+
+    protected $dates = ['date_duration'];
 
     public function book()
     {

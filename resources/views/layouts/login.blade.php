@@ -19,6 +19,19 @@
 
 
     <script src="{{ asset('/js/toastr.min.js') }}"></script>
+        <script src="{{ asset('/js/app.min.js') }}"></script>
+     <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        }
+    });
+    </script>
+
+    @stack ('scripts')
+
+
+
     <script>
    
         @if(Session::has('success'))
@@ -39,6 +52,7 @@
         @endif
      
     </script>
+
 
 </body>
 </html>

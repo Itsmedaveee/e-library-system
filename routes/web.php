@@ -2,13 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
+ 
+
+
 Route::get('/', function () {
     return view('auth.login');
 });     
 
- 
+ //Ajax
+ Route::get('select-course', 'StudentsController@test');
 
 Route::get('/registration-form', 'RegistrationsController@index'); 
+Route::get('/pdf-report-logs', 'PDFCollectionsController@index'); 
 
 Route::get('/settings', 'SettingsController@index');    
 Route::patch('/settings', 'SettingsController@update');   
@@ -23,10 +28,22 @@ Route::get('/categories/{category}/remove', 'CategoriesController@remove');
 
 Route::get('/add-book', 'InventoriesController@index'); 
 
+//Courses
+
+Route::get('/courses', 'CoursesController@index');
+Route::post('/courses', 'CoursesController@store');
+Route::get('/courses/{course}/edit', 'CoursesController@edit');
+Route::patch('/courses/{course}', 'CoursesController@update');
+Route::delete('/courses/{course}', 'CoursesController@destroy');
+
 //Books Resource
  Route::resource('/books', 'BooksController');
+  Route::get('/books/{book}/manage', 'BooksController@manage');
  Route::get('/books/{book}/remove', 'BooksController@remove');
  Route::get('/books/{book}/download', 'BooksController@downloadBook');
+
+ Route::post('/books/{book}', 'BooksController@storeSerial');
+ Route::delete('/books/{inventory}/delete', 'BooksController@deleteInventory');
  //Departments Resource
  Route::resource('/departments', 'DepartmentsController');
  Route::get('/departments/{department}/remove', 'DepartmentsController@remove');
@@ -41,6 +58,7 @@ Route::get('/add-book', 'InventoriesController@index');
 
  //Students
  Route::resource('/students', 'StudentsController');
+
  Route::get('/students/{student}/remove', 'StudentsController@remove');
  Route::get('/pending-students', 'StudentsController@pending');
  Route::patch('/activate-user/{user}', 'StudentsController@activate');

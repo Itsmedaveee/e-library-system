@@ -44,6 +44,16 @@
 								    </span>
 								@endif
 						</div>
+				<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
+										<label>Upload Photo</label>
+										<input class="form-control" type="file" name="upload_photo">
+										<span class="help-block	">	                          
+											@if ($errors->has('upload_photo'))
+											    <span class="help-block">
+											        <strong style="color:red;">{{ $errors->first('upload_photo') }}</strong>
+											    </span>
+											@endif
+									</div>
 
 							<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
 								<label>Title</label>
@@ -54,7 +64,19 @@
 								        <strong style="color:red;">{{ $errors->first('title') }}</strong>
 								    </span>
 								@endif
-							</div>
+							</div> 
+
+
+							<div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+								<label>Body</label> 
+		                        <textarea class="form-control" name="body"></textarea>
+		                        <span class="help-block">	                          
+								@if ($errors->has('body'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('body') }}</strong>
+								    </span>
+								@endif
+		                    </div>
  
 
 		                    <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
@@ -64,6 +86,16 @@
 								@if ($errors->has('author'))
 								    <span class="help-block">
 								        <strong style="color:red;">{{ $errors->first('author') }}</strong>
+								    </span>
+								@endif
+							</div>           
+							<div class="form-group{{ $errors->has('person_published') ? ' has-error' : '' }}">
+								<label>Published</label>
+								<input type="text" class="form-control" name="person_published">
+								 <span class="help-block">	                          
+								@if ($errors->has('person_published'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('person_published') }}</strong>
 								    </span>
 								@endif
 							</div>
@@ -151,6 +183,7 @@
 
 									<td><a href="/books/{{ $book->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
 										<a href="/books/{{ $book->id }}" class="btn btn-warning btn-xs">View</a>
+										<a href="/books/{{ $book->id }}/manage" class="btn btn-info btn-xs">Manage</a>
 									{{-- 	<form method="POST" action="/books/{{ $book->id }}" style="display:inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}
@@ -180,8 +213,7 @@
    });
 </script>
  
-<script>
- 
+<script> 
   $(".multiple-select2").select2({ tags: true });
 </script>
 

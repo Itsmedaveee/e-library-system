@@ -12,7 +12,12 @@ class BorrowController extends Controller
     //BOOK LISTS BORROW STUDENTS
     public function index()
     {
-        $inventories = Inventory::where('status', 'Borrowed')->get();
+        $inventories = Inventory::where('status', 'Borrowed')
+                                ->orWhere('status', 'Overdue')
+                                ->orWhere('status', 'Damaged Book')
+                                ->orWhere('status', 'Lost Book')
+                                ->orWhere('status', 'Extend') 
+                                ->get();
         return view('borrows.borrow-lists', compact('inventories'));
     }
 
@@ -28,7 +33,6 @@ class BorrowController extends Controller
     {
 
        $inventory = Inventory::where('status', 'Available')
-                              ->orWhere('status', 'Return')
                               ->where('book_id', $book->id)
                               ->first(); 
 
@@ -46,7 +50,7 @@ class BorrowController extends Controller
            $reportLog = ReportLog::create([
                 'user_id'  => auth()->id(),
                 'book_id'  => $book->id,
-                'status'  => $inventory->status,
+                'status'  => 'Reserved',
            ]);
 
          return redirect('/student/home')->with('info', 'Book has been request borrowed!');

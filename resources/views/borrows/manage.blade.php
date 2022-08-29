@@ -5,7 +5,7 @@
 <div id="content" class="content"> 
 
    <h1 class="page-header">Request Borrow <small></small></h1>
-   <div class="form-group">
+ {{--   <div class="form-group">
 		<form method="POST" action="/request-borrow/{{ $inventory->id }}" style="display:inline-block;">
 			@csrf
 			{{ method_field('PATCH') }}
@@ -16,7 +16,7 @@
 			{{ method_field('PATCH') }}
 			<button class="btn btn-danger">Cancel</button>
 		</form>   	
-   </div>
+   </div> --}}
    <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
@@ -45,7 +45,51 @@
 				</div>
 			</div>
 		</div>
-			<div class="col-md-12">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+				<div class="panel-heading">Manage Book</div>
+				<div class="panel-body">
+				{{-- <form method="POST" action="/request-borrow/{{ $inventory->id }}" style="display:inline-block;">
+						@csrf
+					{{ method_field('PATCH') }}
+						<div class="form-group">
+						 	<label>Date</label>
+						 	<input type="date" name="date_duration" class="form-control">
+						</div> 
+						<div class="form-group">
+							<button class="btn btn-primary">Approve</button>
+						</div>
+					</form> 
+					<div class="form-group">
+							<form method="POST" action="/request-borrow/{{ $inventory->id }}/cancel" style="display:inline-block;">
+					@csrf
+					{{ method_field('PATCH') }}
+					<button class="btn btn-danger">Cancel</button>
+					</form> 
+					</div> 	 
+		 			</div> --}}
+					<div class="form-group"> 
+						<form method="POST" action="/request-borrow/{{ $inventory->id }}" >
+							@csrf
+							{{ method_field('PATCH') }} 
+							<div class="form-group">
+							<label>Date Duration</label>
+								<input type="date" name="date_duration" class="form-control">
+							</div>
+							<button class="btn btn-primary">Submit </button>
+						</form>   	 
+
+						{{-- <form method="POST" action="/request-borrow/{{ $inventory->id }}/cancel" style="display:inline-block;">
+							@csrf
+							{{ method_field('PATCH') }}
+							<button class="btn btn-danger">Cancel</button>
+						</form>   	 --}}
+				   </div> 
+
+				 </div>
+			 </div> 
+			</div> 
+			<div class="col-md-8">
 				<div class="panel panel-default">
 				<div class="panel-heading">Book</div>
 				<div class="panel-body">

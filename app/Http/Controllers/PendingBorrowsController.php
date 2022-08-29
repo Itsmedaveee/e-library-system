@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Inventory;
 use App\ReportLog;
+use Carbon\Carbon;
 class PendingBorrowsController extends Controller
 {
     public function pending()
@@ -25,6 +26,7 @@ class PendingBorrowsController extends Controller
     public function approved(Inventory $inventory)
     {
         $inventory->update([
+            'date_duration' => Carbon::parse(request('date_duration')),
             'status'    => 'Borrowed'
         ]);
 

@@ -33,19 +33,23 @@
 				<div class="panel panel-default">
 				<div class="panel-heading">Books</div>
 				<div class="panel-body">
-					<table class="table table-bordered">
+					<table class="table table-bordered" id="myTable">
 						<thead>
 							<tr>
 								<th>Title</th> 
+								<th>Body</th> 
 								<th>Author</th>
-								<th>Published</th> 
+								<th>Publisher</th> 
+								<th>Date Published</th> 
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($category->books as $book)
 							<tr>
 								<td>{{ $book->title }}</td>
+								<td>{!!  $book->body !!}</td>
 								<td>{{ $book->author }}</td>
+								<td>{{ $book->person_published }}</td>
 								<td>{{ $book->published->toFormattedDateString() }}</td>
 		 
 							</tr>
@@ -58,3 +62,13 @@
  	
 
 @endsection
+
+
+@push ('scripts')
+<script type="text/javascript">
+   $(document).ready( function () {
+       $('#myTable').DataTable();
+   });
+</script>
+
+@endpush

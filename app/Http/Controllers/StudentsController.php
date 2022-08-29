@@ -7,6 +7,7 @@ use App\User;
 use App\Student;
 use App\Role; 
 use App\Department; 
+use App\Course; 
 use App\Mail\SendingMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -35,11 +36,17 @@ class StudentsController extends Controller
             'name' => 'required',  
             'gender' => 'required',  
             'section' => 'required',  
+            'course' => 'required',  
+            'department' => 'required',  
             'email' => 'required|email|unique:users',
             'year_level'    => 'required',   
+            'course'    => 'required',   
+            'username'    => 'required',   
+            'password'    => 'required',   
         ]); 
 
         $department = Department::find(request('department')); 
+        $course = Course::find(request('course')); 
         $student = Student::create([
             'id_number' => request('id_number'),
             'name' => request('name'),
@@ -62,7 +69,9 @@ class StudentsController extends Controller
 
         $student->user()->associate($user)->save();
         $student->department()->associate($department)->save();
+        $student->course()->associate($course)->save();
         $user->department()->associate($department)->save();
+        $user->course()->associate($course)->save();
         $user->role()->associate($role)->save();
        // Mail::to($student)->send(new SendingMail($student));
         return back()->with('success', 'Student has been register!');
@@ -166,6 +175,19 @@ class StudentsController extends Controller
         $student->user()->delete(); 
 
         return redirect('/students')->with('error', 'Student has been declined');
+    }
+
+    public function test()
+    {
+        if (request()->ajax()) { 
+            $courses = Course::where('department_id', request('department'))->get(); 
+            $data = view('registrations.partials.select-ajax-department-course', [
+                 'courses' => $courses,
+               // 'programs' => $programs,
+            ])->render();
+        }
+
+            return response()->json(['options'=> $data]);
     }
 
 }

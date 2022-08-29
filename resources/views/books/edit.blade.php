@@ -28,26 +28,47 @@
 								</select>
 							</div>
 
-						 
-
+								<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
+									<label>Upload Photo</label>
+									<input class="form-control" type="file" name="upload_photo">
+									<span class="help-block	">	                          
+										@if ($errors->has('upload_photo'))
+										    <span class="help-block">
+										        <strong style="color:red;">{{ $errors->first('upload_photo') }}</strong>
+										    </span>
+										@endif
+								</div>
+ 
 							<div class="form-group">
 								<label>Title</label>
 								<input type="text" class="form-control" name="title" value="{{ $book->title }}">
 							</div>
 
+
 						{{-- 	<div class="form-group">
 								<label>Body</label>
 								<textarea class="form-control"></textarea>
 							</div> --}}
-					{{-- 		<div class="form-group">
+							<div class="form-group">
 								<label>Body</label> 
 		                        <textarea class="form-control" name="body">{{ $book->body }}</textarea>
-		                    </div> --}}
+		                    </div>
 
 			               <div class="form-group">
 									<label>Author</label>
 									<input type="text" class="form-control" name="author" value="{{ $book->author }}">
 								</div>
+
+							<div class="form-group{{ $errors->has('person_published') ? ' has-error' : '' }}">
+								<label>Published</label>
+								<input type="text" class="form-control" name="person_published" value="{{ $book->person_published }}">
+								 <span class="help-block">	                          
+								@if ($errors->has('person_published'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('person_published') }}</strong>
+								    </span>
+								@endif
+							</div>
 
 						{{-- <div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
 								<label>Upload Photo</label>

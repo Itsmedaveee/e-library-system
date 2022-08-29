@@ -10,6 +10,9 @@ class Book extends Model
         'category_id',
         'title',
         'published', 
+        'body', 
+        'upload_photo', 
+        'person_published', 
         'author'
     ];
 

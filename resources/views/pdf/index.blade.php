@@ -34,18 +34,22 @@
         	<thead>
         		<tr>
         			<th>Category</th>
-        			<th>Books Collect</th>
-        			<th>Created At</th>
+        			<th>Books </th>
+              <th>Status </th>
+              <th>Student </th>
+        			<th>Date</th>
         		</tr>
         	</thead>
         	<tbody>
-        		@foreach ($collections as $collect)
-        		<tr>
-        			<td>{{ $collect->title }}</td>
-        			<td>{{ $collect->books_count }}</td>
-        			<td>{{ $collect->created_at }}</td>
-        		</tr>
-        		@endforeach
+        	 @foreach ($reports as $report)
+                  <tr>
+                    <td>{{ $report->book->category->title ?? null }}</td>
+                    <td>{{ $report->book->title ?? null }}</td>
+                    <td>{{ $report->status }}</td>
+                    <td>{{ $report->user->student->name ?? null }}</td>
+                    <td>{{ $report->created_at->toFormattedDateString() }}</td>
+                  </tr>
+                  @endforeach
         	</tbody>
         </table>
 </body>

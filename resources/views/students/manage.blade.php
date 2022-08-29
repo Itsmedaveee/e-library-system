@@ -40,12 +40,14 @@
 							</tr>
 							<tr>
 								<th>Department: {{ $student->department->name }}</th>
+								<th>Course: {{ $student->course->name }}</th>
 								<th>Year Level: {{ $student->year_level }}</th>
-								<th>Section/Course: {{ $student->section }}</th>
+			
 							</tr>
 							<tr>
-								<th>Gender: {{ $student->gender }}</th>
-								<th colspan="3">Username: {{ $student->user->username }}</th>
+							<th>Section: {{ $student->section }}</th>
+								<th>Gender: {{ $student->gender }}</th> 
+								<th colspan="2">Username: {{ $student->user->username }}</th>
 							</tr>
 							 
 						</thead>

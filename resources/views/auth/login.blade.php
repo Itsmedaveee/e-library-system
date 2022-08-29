@@ -1,15 +1,33 @@
-@extends('layouts.login')
+@extends('layouts.frontend')
 @section('content')
 <!-- Log In page -->
-    <div class="container">
-        <div class="row vh-100 d-flex justify-content-center">
+
+<div id="app" class="app">
+
+<div class="register register-with-news-feed">
+
+<div class="news-feed">
+<div class="news-image" style="background-image: url('img/lib.png');"></div>
+<div class="news-caption">
+<h4 class="caption-title">ONLINE LIBRARY MANAGEMENT SYSTEM</h4>
+
+ 
+</div>
+</div>
+
+<div class="register-container" style="width: 700px;">
+
+<div> 
+        <div class="row vh-1 d-flex justify-content-center">
             <div class="col-12 align-self-center">
                 <div class="row">
-                    <div class="col-lg-5 mx-auto">
+                    <div class="col-lg-10 mx-auto">
                         <div class="card">
-                            <div class="card-body p-0 auth-header-box" style="background:#000;">
+                            <div class="card-body p-0 auth-header-box" style="background: #007bff;">
                                 <div class="text-center p-3">
-                                    <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Let's Get Started to Login</h4>   
+                                        <img src="{{ asset('img/src.png') }}" height="70" alt="logo" class="auth-logo">
+
+                                    <h4 class="mt-3 mb-1 font-weight-semibold text-yellow font-18">Welcome! Let's get started!</h4>   
                                 </div>
                             </div>
                             <div class="card-body p-0">
@@ -75,14 +93,17 @@
                                 </div>
                             </div><!--end card-body-->
                             <div class="card-body bg-light-alt text-center">
-                                <span class="text-muted d-none d-sm-inline-block">E-Library Management System </span>                                            
+                                    <span class="text-muted d-none d-sm-inline-block"> Santa Rita College of Pampanga</span>  
+                                    <span class="text-muted d-none d-sm-inline-block"> San Jose, Santa Rita, Pampanga</span>  <br>
+                                   <span class="text-muted d-none d-sm-inline-block">Contact Us: srclibrary@gmail.com</span>                                            
                             </div>
                         </div><!--end card-->
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end col-->
         </div><!--end row-->
-    </div><!--end container-->
+    </div>
+    <!--end container-->
     <!-- End Log In page -->
     
 @endsection

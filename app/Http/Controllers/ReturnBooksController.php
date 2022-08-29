@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Inventory;
 use App\ReportLog;
+use Carbon\Carbon;
 class ReturnBooksController extends Controller
 {
     public function return(Inventory $inventory)
     {
         $inventory->update([
-            'status'    => 'Return'
+            'status'    => request('status'),
+            'time_duration'    => Carbon::parse(request('time_duration'))
         ]);
 
          $reportLog = ReportLog::create([
@@ -19,6 +21,6 @@ class ReturnBooksController extends Controller
                 'status'  => $inventory->status,
            ]);
 
-        return redirect('/borrows')->with('success', 'Book has been returned!');
+        return back()->with('success', "Book has been {$inventory->status}");
     }
 }

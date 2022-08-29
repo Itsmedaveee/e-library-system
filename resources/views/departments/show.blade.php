@@ -31,22 +31,20 @@
 			</div>
 				<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Student Lists</div>
+				<div class="panel-heading">Courses Lists</div>
 				<div class="panel-body">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>ID No.</th>
-								<th>Fullname</th>
-								<th>Gender</th>
+								<th>Code</th>
+								<th>Name</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($department->students as $student)
+							@foreach ($department->courses as $course)
 							<tr>
-								<td>{{ $student->id_number }}</td>
-								<td>{{ $student->name }}</td>
-								<td>{{ $student->gender }}</td>
+								<td>{{ $course->code }}</td>
+								<td>{{ $course->name }}</td> 
 							</tr>
 							@endforeach
 						</tbody>

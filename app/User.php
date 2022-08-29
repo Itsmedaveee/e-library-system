@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'role_id', 'username', 'faculty_id',
-        'department_id', 'status', 'student_id'
+        'department_id', 'status', 'student_id', 'course_id'
     ];
 
     /**
@@ -46,6 +46,10 @@ class User extends Authenticatable
     public function department() 
     {
         return $this->belongsTo(Department::class);
+    }    
+    public function course() 
+    {
+        return $this->belongsTo(Course::class);
     }
     public function student() 
     {

@@ -15,7 +15,10 @@
          <div class="col-md-12">
             <div class="panel panel-default">
             <div class="panel-heading">Report logs</div>
-            <div class="panel-body">
+            <div class="panel-body"> 
+               <div class="form-group">
+                     <a href="/pdf-report-logs" class="btn btn-primary btn-md">Generate PDF</a>
+                  </div>
             	<table class="table table-bordered">
             		<thead>
             			<tr>

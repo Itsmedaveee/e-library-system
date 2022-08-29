@@ -13,8 +13,10 @@ class Student extends Model
         'email',
         'year_level',
         'section',
-        'status',
-        'user_id'
+        'status', 
+        'department_id', 
+        'course_id', 
+        'user_id', 
     ];
 
     public function user()
@@ -25,5 +27,9 @@ class Student extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }    
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
     }
 }
