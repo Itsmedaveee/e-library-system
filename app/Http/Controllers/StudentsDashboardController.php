@@ -50,6 +50,6 @@ class StudentsDashboardController extends Controller
                 'status'  => 'Cancel',
            ]);
 
-       return back()->with('error', 'Book has been cancel');
+       return back()->with('error', 'Book has been cancelled');
     }
 }

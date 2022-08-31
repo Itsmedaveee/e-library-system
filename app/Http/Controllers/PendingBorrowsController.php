@@ -50,6 +50,6 @@ class PendingBorrowsController extends Controller
                 'status'  =>  'Cancel'
            ]);
 
-          return redirect('/pending-borrows')->with('error', 'Cancel Book!');
+          return redirect('/pending-borrows')->with('error', 'Cancelled Book!');
     }
 }

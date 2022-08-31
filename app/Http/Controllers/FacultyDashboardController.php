@@ -9,8 +9,11 @@ class FacultyDashboardController extends Controller
 {
     public function index(Request $request)
     { 
-        $categories = Category::all();
-        return view('faculty-dashboard.index', compact('categories'));
+        // $categories = Category::all();
+        $books = Book::with('category', 'inventories')->withCount(['inventories' => function ($q) {
+            $q->where('status', 'Available')->orWhere('status', 'Return');
+        }])->get();
+        return view('faculty-dashboard.index', compact('books'));
     }
 
     public function show(Book $book, Request $request)
