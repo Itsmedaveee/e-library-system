@@ -3,7 +3,7 @@
 
 <div id="content" class="content"> 
  
-   <h1 class="page-header">Request Borrows <small></small></h1>
+   <h1 class="page-header">Request Lists <small></small></h1>
    <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">

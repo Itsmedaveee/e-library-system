@@ -8,7 +8,7 @@ class ReportLogsController extends Controller
 {
     public function index()
     {
-        $reports = ReportLog::with(['user.student.department', 'book'])->get(); 
+        $reports = ReportLog::with(['user.student.department', 'book'])->latest()->get(); 
         return view('reports-logs.index', compact('reports'));
     }
 }

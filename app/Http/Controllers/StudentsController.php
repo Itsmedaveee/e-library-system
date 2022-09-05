@@ -190,4 +190,9 @@ class StudentsController extends Controller
             return response()->json(['options'=> $data]);
     }
 
+    public function manageAccount(Student $student)
+    {
+        return view('students.manage-account', compact('student'));
+    }
+
 }

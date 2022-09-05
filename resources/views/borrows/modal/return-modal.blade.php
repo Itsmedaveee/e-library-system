@@ -11,7 +11,7 @@
 								</span>
 								</div>
 					        <h5 style="font-size: 1.875rem;font-weight:600; " class="text-center">
-					        	DO YOU WANT TO RETURN THIS BOOK?
+					        	DO YOU WANT TO SUBMIT?
 					        </h5>
 					        <div class="form-group" align="center">
 					         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel </button>

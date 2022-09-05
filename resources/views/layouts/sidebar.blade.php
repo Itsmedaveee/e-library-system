@@ -176,7 +176,7 @@
                <span>Borrows</span>
             </a>
             <ul class="sub-menu"> 
-               <li class="{{ Request::is('pending-borrows') ? 'active' : '' }}"><a href="/pending-borrows">Request Borrows</a></li>
+               <li class="{{ Request::is('pending-borrows') ? 'active' : '' }}"><a href="/pending-borrows">Request lists</a></li>
                <li class="{{ Request::is('borrows') ? 'active' : '' }}"><a href="/borrows"> Borrow lists</a></li>
             </ul>
          </li>
@@ -193,7 +193,7 @@
                <span>Reports</span>
             </a>
             <ul class="sub-menu"> 
-               <li class="{{ Request::is('reports') ? 'active' : '' }}"><a href="/reports"> Reports</a></li>
+               <li class="{{ Request::is('reports') ? 'active' : '' }}"><a href="/reports"> Report logs</a></li>
               
             </ul>
          </li>

@@ -48,7 +48,7 @@
 						@csrf
 					{{ method_field('PATCH') }}
 					<div class="form-group">
-							<label>Date Duration</label>
+							<label>Renew</label>
 								<input type="date" name="date_duration" class="form-control">
 							</div>
 						<div class="form-group">
@@ -58,8 +58,8 @@
 								<option value="Overdue">Overdue</option>
 								<option value="Damaged Book">Damaged Book</option>
 								<option value="Lost Book">Lost Book</option> 
-								<option value="Extend">Extend</option>
-								<option value="Return Book">Return</option>
+								<option value="Renewed">Renew</option>
+								<option value="Returned">Return</option>
 							</select>
 						</div>
 

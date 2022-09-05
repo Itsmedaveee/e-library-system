@@ -187,9 +187,9 @@
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Remove</button>
 										</form> --}}
-									{{-- 		 <a href="/students/{{ $student->id }}/remove" class="btn btn-danger btn btn-xs button delete-confirm">  Delete</a> --}}
-{{-- 
-										<a href="/students/{{ $student->id }}/manage" class="btn btn-primary btn-xs"> Manage</a> --}}
+										{{-- 	 <a href="/students/{{ $student->id }}/remove" class="btn btn-danger btn btn-xs button delete-confirm">  Delete</a> --}}
+
+										<a href="/students/{{ $student->id }}/manage-account" class="btn btn-primary btn-xs"> Manage Account</a>
 
 									</td> 
 								</tr>

@@ -19,7 +19,7 @@
                <div class="form-group">
                      <a href="/pdf-report-logs" class="btn btn-primary btn-md">Generate PDF</a>
                   </div>
-            	<table class="table table-bordered">
+            	<table class="table table-bordered" id="myTable">
             		<thead>
             			<tr>
             				<th>ID</th>
@@ -46,14 +46,18 @@
             </div>
         </div>
     </div>
-
-
-
-
  
-
-
-
-
+  
 
 @endsection
+
+@push ('scripts')
+<script type="text/javascript">
+   $(document).ready( function () {
+       $('#myTable').DataTable({
+         order: [[1, 'desc']], 
+       });
+   });
+</script>
+
+@endpush

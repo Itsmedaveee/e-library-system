@@ -17,18 +17,34 @@
 				<div class="panel-body">
 					<table class="table table-bordered">
 						<thead>
-							<tr>
-								<th>ID No: {{ $student->id_number }}</th>
+							<tr> 
+							{{-- 	<th>ID No: {{ $student->id_number }}</th>
 								<th>Name: {{ $student->name }}</th>
-								<th>Email: {{ $student->user->email }}</th>
+								<th></th>
 								<th>Department: {{ $student->department->name }}</th>
 								<th>Course: {{ $student->course->name }}</th>
 								<th>Year Level: {{ $student->year_level }}</th>
 								<th>Section: {{ $student->section }}</th>
 								<th>Gender: {{ $student->gender }}</th>
-								<th>Username: {{ $student->user->username }}</th>
+								<th>Username: {{ $student->user->username }}</th> --}}
 							</tr>
-							 
+							 <tbody>
+							 	<tr>
+							 		<td>ID No. {{ $student->id_number }}</td>
+							 		<td>Name : {{ $student->name }}</td>
+							 		<td>Email: {{ $student->user->email }}</td>
+							 	</tr>
+							 	<tr>
+							 		<td>Department: {{ $student->department->name }}</td>
+							 		<td>Course: {{ $student->course->name }}</td>
+							 		<td>Year Level: {{ $student->year_level }}</td>
+							 	</tr>
+							 	<tr>
+							 		<td>Section: {{ $student->section }}</td>
+							 		<td>Gender: {{ $student->gender }}</td>
+							 		<td>Username: {{ $student->user->username }}</td>
+							 	</tr>
+							 </tbody>
 						</thead>
 					</table>
 				</div>

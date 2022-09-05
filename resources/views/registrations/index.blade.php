@@ -194,19 +194,15 @@
                                                     @endif                             
                                             </div>
                                             </div><!--end form-group--> 
-                                            <div class="col-md-6">
-                                            <div class="form-group mb-2">
-                                                <label for="password">Password</label>                                            
-                                                <div class="input-group {{ $errors->has('password') ? 'has-error' : '' }}">                                  
-                                                    <input type="password" class="form-control" name="password" placeholder="Enter password">
-                                                </div>
-                                                 @if ($errors->has('password'))
-                                                        <span class="help-block">
-                                                        <strong style="color: red;">{{ $errors->first('password') }}</strong>
-                                                        </span>
-                                                 @endif                                 
-                                            </div> 
-                                            </div> 
+                                        
+                                        <div class="col-md-6">    
+                                       <div class="form-group">
+                                         <label class="">Password</label>
+                                         <div class="col-md-12">
+                                            <input id="password-field" type="password" class="form-control" name="password" >
+                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                         </div>
+                                      </div>
 
                                             <div class="form-group row my-3">
                                                 <div class="col-sm-6">
@@ -271,8 +267,25 @@
                 }
             }); 
         });
+
+
  
     </script>
+
+
+  <script>
+$(".toggle-password").click(function() {
+ 
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});    
+</script>
+
   
 @endpush
     

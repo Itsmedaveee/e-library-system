@@ -4,7 +4,7 @@
 
 <div id="content" class="content"> 
 
-   <h1 class="page-header">Request Borrow <small></small></h1>
+   <h1 class="page-header">Request Lists <small></small></h1>
  {{--   <div class="form-group">
 		<form method="POST" action="/request-borrow/{{ $inventory->id }}" style="display:inline-block;">
 			@csrf

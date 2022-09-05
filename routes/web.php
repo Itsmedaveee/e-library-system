@@ -64,6 +64,7 @@ Route::delete('/courses/{course}', 'CoursesController@destroy');
  Route::patch('/activate-user/{user}', 'StudentsController@activate');
  Route::patch('/deactivate-user/{user}', 'StudentsController@deactivate');
  Route::get('/students/{student}/manage', 'StudentsController@manage');
+ Route::get('/students/{student}/manage-account', 'StudentsController@manageAccount');
  Route::patch('/student/manage/{student}/approved', 'StudentsController@approved');
  Route::delete('/student/manage/{student}/declined', 'StudentsController@declined');
 

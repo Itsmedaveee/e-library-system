@@ -8,7 +8,21 @@
 	<link href="{{ asset('default/vendor.css') }}" rel="stylesheet" />
 	<link href="{{ asset('default/app.css') }}" rel="stylesheet" />
 	<link href="{{ asset('css/toastr.css') }}" rel="stylesheet" />
+      <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        .container{
+  padding-top:50px;
+  margin: auto;
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+    </style>
 </head>
 <body>
 

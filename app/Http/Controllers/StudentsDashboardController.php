@@ -31,7 +31,12 @@ class StudentsDashboardController extends Controller
 
     public function pendingRequest()
     {
-        $inventories = Inventory::where('status', 'Reserved')->get();
+        $inventories = Inventory::where('status', 'Borrowed')
+                                ->orWhere('status', 'Overdue')
+                                ->orWhere('status', 'Damaged Book')
+                                ->orWhere('status', 'Lost Book')
+                                ->orWhere('status', 'Extend') 
+                                ->get();
 
        return view('student-dashboard.request-book', compact('inventories'));
     }
@@ -47,7 +52,7 @@ class StudentsDashboardController extends Controller
        $reportLog = \App\ReportLog::create([
                 'user_id'  => auth()->id(), 
                 'book_id'   => $book->id,
-                'status'  => 'Cancel',
+                'status'  => 'Cancelled',
            ]);
 
        return back()->with('error', 'Book has been cancelled');

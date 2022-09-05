@@ -4,13 +4,13 @@
 <div id="content" class="content"> 
    <ol class="breadcrumb float-xl-right">
       <li class="breadcrumb-item"><a href="/pending-borrows" class="">Pending Book</a></li>
-      <li class="breadcrumb-item  active">Request Book</li>
+      <li class="breadcrumb-item  active">Request Lists</li>
    </ol> 
-   <h1 class="page-header">Request Book <small></small></h1>
+   <h1 class="page-header">Request Lists <small></small></h1>
    <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Request Book</div>
+				<div class="panel-heading">Request lists</div>
 				<div class="panel-body">
 					<table class="table table-bordered" id="myTable">
 						<thead>
