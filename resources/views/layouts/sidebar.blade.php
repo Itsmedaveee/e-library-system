@@ -37,7 +37,7 @@
             </a>
          </li>
 
-            <li class="has-sub {{ Request::is('users') ? 'active' : '' }}   {{ Request::is('faculty-users') ? 'active' : '' }}  
+            <li class="has-sub {{ Request::is('users') ? 'active' : '' }}   
             border-top: 1px solid #46505a;">
             <a href="javascript:;">
                <b class="caret"></b>
@@ -45,11 +45,27 @@
                {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
                <i class="fa fa-user"></i>
                </div>
-               <span>Users</span>
+               <span>Admin</span>
             </a>
             <ul class="sub-menu">
                <li class="{{ Request::is('users') ? 'active' : '' }} "><a href="/users">Administrator lists</a></li>
+               
+              {{--  <li class="{{ Request::is('librarian-users') ? 'active' : '' }}"><a href="/librarian-users">Librarian users</a></li> --}}
+            </ul>
+         </li>           
+         <li class="has-sub {{ Request::is('faculty-users') ? 'active' : '' }}  
+            border-top: 1px solid #46505a;">
+            <a href="javascript:;">
+               <b class="caret"></b>
+               <div class="icon-img">
+               {{--    <img src="{{ asset('img/app.png') }}" alt="" class="round bg-inverse" /> --}}
+               <i class="fa fa-user"></i>
+               </div>
+               <span>Faculty </span>
+            </a>
+            <ul class="sub-menu">
                <li class="{{ Request::is('faculty-users') ? 'active' : '' }} "><a href="/faculty-users">Faculty lists</a></li>
+               
               {{--  <li class="{{ Request::is('librarian-users') ? 'active' : '' }}"><a href="/librarian-users">Librarian users</a></li> --}}
             </ul>
          </li>     

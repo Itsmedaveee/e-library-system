@@ -31,7 +31,7 @@
 							<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 							 
 								<label>Fullname</label>
-								<input type="text" class="form-control" name="name">
+								<input type="text" class="form-control" name="name" placeholder="Surname, Firstname, MI">
 								<span class="help-block	">	                          
 								@if ($errors->has('name'))
 								    <span class="help-block">
@@ -126,7 +126,7 @@
 							<tbody>
 								@foreach ($faculties as $user)
 								<tr>
-									<td>{{ $user->faculty->id_number }}</td>
+									<td>{{ $user->faculty->id_number ?? null }}</td>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->faculty->department->name ?? null }}</td>
 								 

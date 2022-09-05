@@ -18,7 +18,7 @@
 								@csrf
 							<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 									<label>Name</label>
-									<input type="text" class="form-control" name="name">
+									<input type="text" class="form-control" name="name" placeholder="Surname, Firstname, MI">
 									<span class="help-block	">	                          
 									@if ($errors->has('name'))
 									    <span class="help-block">

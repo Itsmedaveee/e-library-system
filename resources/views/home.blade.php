@@ -17,8 +17,8 @@
 <div class="widget widget-stats bg-teal" >
 <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 <div class="stats-content">
-<div class="stats-title">TOTAL TEACHERS</div>
-<div class="stats-number">{{ $stats->totalFaculties() }}</div>
+<div class="stats-title">TOTAL ADMIN</div>
+<div class="stats-number">{{ $stats->totalAdmin() }}</div>
 <div class="stats-progress progress">
 <div class="progress-bar" style="width: 70.1%;"></div>
 </div>
@@ -29,7 +29,7 @@
 <div class="widget widget-stats bg-teal" >
 <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 <div class="stats-content">
-<div class="stats-title">TOTAL TEACHERS</div>
+<div class="stats-title">TOTAL FACULTIES</div>
 <div class="stats-number">{{ $stats->totalFaculties() }}</div>
 <div class="stats-progress progress">
 <div class="progress-bar" style="width: 70.1%;"></div>

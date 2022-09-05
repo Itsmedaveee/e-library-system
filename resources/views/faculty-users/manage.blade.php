@@ -17,13 +17,13 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>ID No: {{ $user->faculty->id_number }}</th>
-								<th>Name: {{ $user->faculty->name }}</th>
-								<th>Email: {{ $user->email }}</th>
+								<th>ID No: {{ $user->faculty->id_number ?? null }}</th>
+								<th>Name: {{ $user->faculty->name ?? null }}</th>
+								<th>Email: {{ $user->email ?? null }}</th>
 							</tr>
 							<tr>
-								<th>Department: {{ $user->faculty->department->name }}</th>
-								<th colspan="2">Gender: {{ $user->faculty->gender }}</th>
+								<th>Department: {{ $user->faculty->department->name?? null  }}</th>
+								<th colspan="2">Gender: {{ $user->faculty->gender ?? null }}</th>
 							</tr>
 						</thead>
 					</table>
