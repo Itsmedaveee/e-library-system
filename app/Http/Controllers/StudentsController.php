@@ -195,4 +195,34 @@ class StudentsController extends Controller
         return view('students.manage-account', compact('student'));
     }
 
+
+    public function updateStudent(Student $student, Request $request)
+    {
+
+
+     $this->validate(request(),[
+        'password'              => 'required_if:password,value|confirmed',
+        'password_confirmation' => 'required_if:password,value',
+    ]);
+
+   
+
+    if ($request->password != null) { 
+       $student->user->update([
+            'password'     => bcrypt(request('password')),
+             'status'        => 1
+        ]);
+    }
+ 
+           $student->user->update([
+
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'username'      => $request->username,
+            'status'        => 1
+            
+        ]); 
+        return redirect('/students')->with('info', 'Student has been update!');
+    }
+ 
 }

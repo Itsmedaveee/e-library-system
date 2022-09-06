@@ -47,11 +47,27 @@
 							 </tbody>
 						</thead>
 					</table>
+							<form method="POST" action="/activate-user/{{ $student->user->id }}" style="display: inline-block;">
+						@csrf
+						{{ method_field('PATCH') }}
+						<div class="form-group">
+							 <button type="submit" class="btn btn-primary">Activate Account</button>
+						</div>
+					</form>					
+
+					<form method="POST" action="/deactivate-user/{{ $student->user->id }}" style="display: inline-block;">
+						@csrf
+						{{ method_field('PATCH') }}
+						<div class="form-group"> 
+							<button type="submit" class="btn btn-danger">Deactivate Account</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
+		
 
  
 @endsection

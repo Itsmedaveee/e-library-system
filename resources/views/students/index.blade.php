@@ -172,6 +172,7 @@
 								<tr>
 									<th>ID No.</th>
 									<th>Name</th>
+									<th>Status</th>
 									<th>Options</th>
 								</tr>
 							</thead>
@@ -180,6 +181,13 @@
 								<tr> 
 									<td>{{ $student->id_number }}</td>
 									<td>{{ $student->name }}</td>
+										<td>
+										@if ($student->user->status == 1) 
+											<span class="label label-success">Active</span>
+										@else 
+											<span class="label label-danger">Deactivate</span>
+										@endif
+									</td>
 									<td>
 										<a href="/students/{{ $student->id }}" class="btn btn-info btn-xs">Show</a>
 						{{-- 				<form method="POST" action="/students/{{ $student->id }}" style="display:inline-block;">

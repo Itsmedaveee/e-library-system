@@ -121,6 +121,7 @@
 								<th>ID No.</th>
 								<th>Name</th>
 								<th>Department</th>
+								<th>Status</th>
 								<th>Actions</th>
 							</thead>
 							<tbody>
@@ -129,6 +130,13 @@
 									<td>{{ $user->faculty->id_number ?? null }}</td>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->faculty->department->name ?? null }}</td>
+									<td>
+										@if ($user->status == 1) 
+											<span class="label label-success">Active</span>
+										@else 
+											<span class="label label-danger">Deactivate</span>
+										@endif
+									</td>
 								 
 									<td><a href="/faculty-users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
 										<a href="/faculty-users/{{ $user->id }}/show" class="btn btn-warning btn-xs">Show </a>

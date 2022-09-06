@@ -67,6 +67,7 @@ Route::delete('/courses/{course}', 'CoursesController@destroy');
  Route::get('/students/{student}/manage-account', 'StudentsController@manageAccount');
  Route::patch('/student/manage/{student}/approved', 'StudentsController@approved');
  Route::delete('/student/manage/{student}/declined', 'StudentsController@declined');
+ Route::patch('/student/{student}/manage', 'StudentsController@updateStudent');
 
 //Faculty Dashboard
  Route::get('/faculty/home', 'FacultyDashboardController@index'); 
