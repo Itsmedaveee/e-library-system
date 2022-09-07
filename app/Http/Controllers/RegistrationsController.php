@@ -11,7 +11,7 @@ class RegistrationsController extends Controller
     {
 
         $departments = Department::pluck('name', 'id');
-        $courses = Course::pluck('code', 'id');
+        $courses = Course::pluck('code', 'id'); 
         return view('registrations.index', compact('departments', 'courses'));
     }
 }

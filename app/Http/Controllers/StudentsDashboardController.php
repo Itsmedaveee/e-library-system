@@ -33,6 +33,7 @@ class StudentsDashboardController extends Controller
     {
         $inventories = Inventory::where('status', 'Borrowed')
                                 ->orWhere('status', 'Overdue')
+                                ->orWhere('status', 'Pending')
                                 ->orWhere('status', 'Damaged Book')
                                 ->orWhere('status', 'Lost Book')
                                 ->orWhere('status', 'Extend') 
