@@ -145,7 +145,7 @@
 												@csrf
 											<button type="sumbit" class="btn btn-danger btn-xs">Delete</button>
 										</form> --}}
-										 <a href="/faculty-users/{{ $user->id }}/remove" class="btn btn-danger btn btn-xs  delete-confirm">  Delete</a>
+										{{--  <a href="/faculty-users/{{ $user->id }}/remove" class="btn btn-danger btn btn-xs  delete-confirm">  Delete</a> --}}
 
 										<a href="/faculty-users/{{ $user->id }}/manage" class="btn btn-primary btn-xs">Manage</a>
 

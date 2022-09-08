@@ -89,11 +89,11 @@
 									<td>{{ $user->created_at }}</td>
 									<td>
 										<a href="/users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
-										<form method="POST" action="/users/{{ $user->id }}" style="display: inline-block;">
+								{{-- 		<form method="POST" action="/users/{{ $user->id }}" style="display: inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-danger btn-xs">Delete</button>
-										</form>
+										</form> --}}
 									</td>
 								</tr>
 								@endforeach
