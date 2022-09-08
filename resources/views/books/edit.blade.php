@@ -50,7 +50,7 @@
 								<textarea class="form-control"></textarea>
 							</div> --}}
 							<div class="form-group">
-								<label>Body</label> 
+								<label>Overview</label> 
 		                        <textarea class="form-control" name="body">{{ $book->body }}</textarea>
 		                    </div>
 

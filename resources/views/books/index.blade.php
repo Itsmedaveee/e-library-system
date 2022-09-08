@@ -68,7 +68,7 @@
 
 
 							<div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-								<label>Body</label> 
+								<label>Overview</label> 
 		                        <textarea class="form-control" name="body"></textarea>
 		                        <span class="help-block">	                          
 								@if ($errors->has('body'))
