@@ -172,6 +172,7 @@
 								<tr>
 									<th>ID No.</th>
 									<th>Name</th>
+									<th>Course</th>
 									<th>Status</th>
 									<th>Options</th>
 								</tr>
@@ -181,6 +182,7 @@
 								<tr> 
 									<td>{{ $student->id_number }}</td>
 									<td>{{ $student->name }}</td>
+									<td>{{ $student->course->code }}</td>
 										<td>
 										@if ($student->user->status == 1) 
 											<span class="label label-success">Active</span>
