@@ -4,15 +4,15 @@
    <!-- begin breadcrumb -->
    <ol class="breadcrumb float-xl-right">
       <li class="breadcrumb-item"><a href="/users" class="">Users</a></li>
-      <li class="breadcrumb-item  active">Edit User</li>
+      <li class="breadcrumb-item  active">Edit Administrator</li>
    </ol>
    <!-- end breadcrumb -->
    <!-- begin page-header -->
-   <h1 class="page-header">Edit User <small></small></h1>
+   <h1 class="page-header">Edit Administrator <small></small></h1>
    	<div class="row"> 
 			<div class="col-md-12">
 				<div class="panel panel-default">
-				<div class="panel-heading">Edit User</div>
+				<div class="panel-heading">Edit Administrator</div>
 				<div class="panel-body">
 
 						<form method="POST" action="/users/{{ $user->id }}">

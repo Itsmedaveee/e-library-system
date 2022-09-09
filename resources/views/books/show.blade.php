@@ -22,7 +22,7 @@
             <br>
                <p>Category : {{ $book->category->title }}</p>
                <p> Publisher: {{ $book->person_published }}</p>
-               <p>Date Published: {{ $book->published->toFormattedDateString() }}</p>
+            {{--    <p>Date Published: {{ $book->published->toFormattedDateString() }}</p> --}}
         </div>
 
         <div class="media-body">

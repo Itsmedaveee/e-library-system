@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('author');
             $table->string('upload_photo');
             $table->text('body');
-            $table->date('published'); 
+            $table->date('published')->nullable(); 
             $table->string('person_published'); 
             $table->timestamps();
         });

@@ -120,7 +120,7 @@
 								    </span>
 								@endif
 							</div> --}}
-							<div class="form-group{{ $errors->has('published') ? ' has-error' : '' }}">
+						{{-- 	<div class="form-group{{ $errors->has('published') ? ' has-error' : '' }}">
 								<label>Date Published</label>
 								<input type="date" name="published" class="form-control">
 								 <span class="help-block">	                          
@@ -129,7 +129,7 @@
 								        <strong style="color:red;">{{ $errors->first('published') }}</strong>
 								    </span>
 								@endif
-							</div>	
+							</div>	 --}}
 							
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Submit</button>
@@ -177,7 +177,7 @@
 										@if ($book->inventories_count > 0)
 											Available
 										@else 
-											No Available
+											Not Available
 										@endif
 									</td>
 

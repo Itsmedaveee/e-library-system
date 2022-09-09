@@ -52,7 +52,7 @@
                            @if ($book->inventories_count > 0)
                                  Available
                               @else 
-                                 No Available
+                                 Not Available
                            @endif
                            </td>
                         <td>{{ $book->created_at->toFormattedDateString() }}</td>  

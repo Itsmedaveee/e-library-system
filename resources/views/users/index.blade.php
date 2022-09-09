@@ -4,15 +4,15 @@
    <!-- begin breadcrumb -->
    <ol class="breadcrumb float-xl-right">
       <li class="breadcrumb-item"><a href="/home" class="">Home</a></li>
-      <li class="breadcrumb-item  active">User</li>
+      <li class="breadcrumb-item  active">Administrator</li>
    </ol>
    <!-- end breadcrumb -->
    <!-- begin page-header -->
-   <h1 class="page-header">User <small></small></h1>
+   <h1 class="page-header">Administrator <small></small></h1>
    	<div class="row"> 
 				<div class="col-md-4">
 					<div class="panel panel-default">
-					<div class="panel-heading">Add User</div>
+					<div class="panel-heading">Add Administrator</div>
 					<div class="panel-body">
 						<form method="POST" action="/users" id="myTable">
 								@csrf
@@ -66,7 +66,7 @@
 		</div> 
 			<div class="col-md-8"> 
 				  <div class="panel panel-default">
-				    <div class="panel-heading">User lists</div>
+				    <div class="panel-heading">Administrator lists</div>
 				    <div class="panel-body">
 				    	<table class="table table-hover" id="myTable">
 							<thead>
@@ -88,7 +88,7 @@
 									<td>{{ $user->username }}</td>
 									<td>{{ $user->created_at }}</td>
 									<td>
-										<a href="/users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
+										<a href="/users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Manage Account</a>
 								{{-- 		<form method="POST" action="/users/{{ $user->id }}" style="display: inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}

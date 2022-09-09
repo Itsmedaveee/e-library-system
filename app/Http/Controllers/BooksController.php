@@ -22,7 +22,6 @@ class BooksController extends Controller
        $this->validate(request(), [
             'title' => 'required',
             'author' => 'required',
-            'published' => 'required',
             'serial_no' => 'required',
             'category' => 'required',
             'person_published' => 'required',
@@ -40,8 +39,7 @@ class BooksController extends Controller
         $book = Book::create([
             'title' => request('title'),
             'author'  => request('author'), 
-            'body'  => request('body'), 
-            'published' =>  request('published'),
+            'body'  => request('body'),  
             'person_published' =>  request('person_published'),
             'upload_photo' =>  $uploadImage,
         ]);
@@ -89,8 +87,7 @@ class BooksController extends Controller
         $book->update([
             'title' => request('title'),
             'author'  => request('author'),
-            'body'  => request('body'),
-            'published'  => request('published'), 
+            'body'  => request('body'), 
             'person_published'  => request('person_published'), 
             'upload_photo'  => $uploadImage, 
         ]);

@@ -88,10 +88,10 @@
 								    </span>
 								@endif
 							</div> --}}
-							<div class="form-group">
+					{{-- 		<div class="form-group">
 								<label>Date Published</label>
 								<input type="date" name="published" class="form-control"  value="{{ \Carbon\Carbon::parse($book->published)->format('yyyy-MM-ddThh:mm')}}">
-							</div> 
+							</div>  --}}
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Update</button>
 							</div>

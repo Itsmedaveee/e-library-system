@@ -225,7 +225,7 @@
 
                                         <div class="m-3 text-center text-muted">
                                             <div class="form-group mb-1 row">                        
-                                                   <div class="col-12">
+                                                   <div class="col-11">
                                                     <a href="{{ route('login') }}">Log In here</a>
                                                 </div>
                                             </div>

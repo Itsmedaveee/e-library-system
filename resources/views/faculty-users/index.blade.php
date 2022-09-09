@@ -138,8 +138,13 @@
 										@endif
 									</td>
 								 
-									<td><a href="/faculty-users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Edit</a>
-										<a href="/faculty-users/{{ $user->id }}/show" class="btn btn-warning btn-xs">Show </a>
+									<td>
+
+
+										<a href="/faculty-users/{{ $user->id }}/manage" class="btn btn-info btn-xs">Show</a>
+
+										<a href="/faculty-users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Manage Account</a>
+								{{-- 		<a href="/faculty-users/{{ $user->id }}/show" class="btn btn-warning btn-xs">Show </a> --}}
 									{{-- 	<form method="POST" action="/faculty-users/{{ $user->id }}" style="display:inline-block">
 												{{ method_field('DELETE') }}
 												@csrf
@@ -147,7 +152,6 @@
 										</form> --}}
 										{{--  <a href="/faculty-users/{{ $user->id }}/remove" class="btn btn-danger btn btn-xs  delete-confirm">  Delete</a> --}}
 
-										<a href="/faculty-users/{{ $user->id }}/manage" class="btn btn-primary btn-xs">Manage</a>
 
 									</td>
 								</tr>
