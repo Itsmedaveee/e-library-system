@@ -74,5 +74,10 @@ class UsersController extends Controller
         $user->delete();
         return back()->with('error', 'User has been removed!');
     }
+
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
+    }
  
 }

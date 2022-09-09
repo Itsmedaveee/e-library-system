@@ -75,7 +75,7 @@
 									<th>Name</th>
 									<th>Email</th>
 									<th>Username</th>
-									<th>Created At</th>
+									<th>Status</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
@@ -86,9 +86,16 @@
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->email }}</td>
 									<td>{{ $user->username }}</td>
-									<td>{{ $user->created_at }}</td>
+									<td>
+									@if ($user->status == 1) 
+						 				<span class="label label-success"> Active</span>
+						 			@else 
+						 				<span class="label label-danger">Deactivated</span>
+						 			@endif
+									</td>
 									<td>
 										<a href="/users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Manage Account</a>
+										<a href="/users/{{ $user->id }}/show" class="btn btn-info btn-xs">Show</a>
 								{{-- 		<form method="POST" action="/users/{{ $user->id }}" style="display: inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}

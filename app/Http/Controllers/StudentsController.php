@@ -141,12 +141,16 @@ class StudentsController extends Controller
 
     public function activate(User $user) 
     {
+
         $user->update(['status' => 1]);
         return back()->with('success', 'Activate User Success!');
     }
 
     public function deactivate(User $user)
     {
+         if ($user->id == 1) {
+            return back()->with('warning', 'You cannot deactivate this  account!');
+        }
         $user->update(['status' => 0]);
         return back()->with('error', 'Deactivate User Success!');
     }

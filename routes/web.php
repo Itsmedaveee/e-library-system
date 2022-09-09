@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
   //Users Resource 
 Route::resource('/users', 'UsersController');
+Route::get('/users/{user}/show', 'UsersController@show');
 //Categories Resource
 Route::resource('/categories', 'CategoriesController');  
 Route::get('/categories/{category}/remove', 'CategoriesController@remove');  

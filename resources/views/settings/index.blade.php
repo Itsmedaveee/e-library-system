@@ -29,6 +29,7 @@
                             </span>
                         @endif
                      </div>   
+
                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" hidden>
                         <label>Email</label>
                         <input type="text" class="form-control" name="email" value="{{ auth()->user()->email }}">
@@ -101,9 +102,7 @@
                                 <strong style="color:red;">{{ $errors->first('new_confirm_password') }}</strong>
                             </span>
                         @endif
-                     </div> --}}
-
-
+                     </div> --}} 
 
                      <div class="form-group">
                         <button type="submit" class="btn btn-primary">Update</button>
