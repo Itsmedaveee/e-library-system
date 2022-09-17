@@ -96,6 +96,7 @@
 									<td>
 										<a href="/users/{{ $user->id }}/edit" class="btn btn-primary btn-xs">Manage Account</a>
 										<a href="/users/{{ $user->id }}/show" class="btn btn-info btn-xs">Show</a>
+										
 								{{-- 		<form method="POST" action="/users/{{ $user->id }}" style="display: inline-block;">
 											@csrf
 											{{ method_field('DELETE') }}

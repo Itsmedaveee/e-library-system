@@ -100,6 +100,17 @@
 								@endif
 							</div>
 
+							<div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
+								<label>Year of Publication</label>
+								<input type="text" class="form-control" name="author">
+								 <span class="help-block">	                          
+								@if ($errors->has('author'))
+								    <span class="help-block">
+								        <strong style="color:red;">{{ $errors->first('author') }}</strong>
+								    </span>
+								@endif
+							</div>   
+
 						{{-- 	<div class="form-group{{ $errors->has('upload_photo') ? ' has-error' : '' }}">
 								<label>Upload Photo</label>
 								<input type="file" name="upload_photo" class="form-control">
